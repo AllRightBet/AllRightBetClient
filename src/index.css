@@ -1,13 +1,21 @@
-body {
+/* Basic Reset: Applies these properties and values to all html elements. * is the universal selector. */
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  /* root font size. 1rem is 10px now. Use a percentage just in case the user changes the font size. */
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* It is good practice to define all the font properties in the body to be inherited by all the other elements.*/
+body {
+  box-sizing: border-box;
+  /* background-color: #DDA15E; */
+  padding: 2rem 0;
 }
