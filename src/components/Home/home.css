@@ -1,0 +1,19 @@
+.container {
+  max-width: 900px;
+}
+
+.link__container {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 600;
+  box-shadow: 10px 10px 5px gray;
+}
+
+.link {
+  background-color: #f93154;
+  border: 2px solid #fbfbfb;
+  color: #fbfbfb;
+}
