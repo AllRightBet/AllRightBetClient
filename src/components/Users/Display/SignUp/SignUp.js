@@ -4,7 +4,7 @@ import SignUpForm from "../../Forms/SignUpForm";
 const SignUp = () => {
   return (
     <div>
-      <SignUpForm />
+      <SignUpForm isAdmin={false} />
     </div>
   );
 };

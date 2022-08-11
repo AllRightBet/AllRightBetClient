@@ -7,7 +7,8 @@ import SignUp from "./components/Users/Display/SignUp/SignUp";
 
 import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
 import AdminCreateFightCard from "./components/Admin/Forms/Admin_CreateFightCard"
-import AdminCreateUser from "./components/Admin/Forms/Admin_CreateUser"
+import SignUpForm from "./components/Users/Forms/SignUpForm";
+
 
 
 
@@ -26,7 +27,7 @@ const App = () => {
         {/* ADMIN INTERFACE */}
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/create-fight-card" element={<AdminCreateFightCard />} />
-        <Route path="/create-user" element={<AdminCreateUser />} />
+        <Route path="/create-user" element={<SignUpForm isAdmin={true} />} />
 
         <Route path="/all-users" element={<AdminDashboard />} />
         <Route path="/all-bets" element={<AdminDashboard />} />

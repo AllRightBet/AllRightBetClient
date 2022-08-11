@@ -21,12 +21,6 @@ const Admin_CreateUser = () => {
 
   return (
     <>
-      <SignUpForm />
-
-
-
-      <Container>
-        <Form >
           <h1 className='mt-5 mb-3'>ADMIN HIDDEN USER ATTRIBUTES</h1>
           <Row>
             <Col>
@@ -98,16 +92,6 @@ const Admin_CreateUser = () => {
               />
             </Col>
           </Row>
-
-
-          <Button className="mt-5" variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-
-      </Container>
-
-
 
     </>
   )
