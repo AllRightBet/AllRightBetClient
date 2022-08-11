@@ -11,9 +11,16 @@ import SignUpForm from "./components/Users/Forms/SignUpForm";
 import DisplayModels from "./components/DisplayModels";
 
 
+<<<<<<< HEAD
 
 
 
+=======
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import AdminCreateFightCard from "./components/Forms/Admin_CreateFightCard";
+import AdminCreateUser from "./components/Forms/Admin_CreateUser";
+import GetFightCard from "./components/GetFightCard/GetFightCard";
+>>>>>>> e62d6ca (Add fightcard component and style)
 
 const App = () => {
 
@@ -23,14 +30,17 @@ const App = () => {
   return (
     <React.Fragment>
       <Routes>
-
         {/* USER INTERFACE */}
         <Route exact path="/" element={<Home />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
+<<<<<<< HEAD
 
         <Route path="/user-bets" element={<DisplayModels url="/bet?relative_user=1" />} />
         <Route path="/user-fight-cards" element={<DisplayModels url="/fight-card?relative_user=1" />} />
+=======
+        <Route path="/getFightCard" element={<GetFightCard />} />
+>>>>>>> e62d6ca (Add fightcard component and style)
 
         {/* ADMIN INTERFACE */}
         {/* todo : needs admin authentication */}
@@ -43,13 +53,16 @@ const App = () => {
         <Route path="/all-fight-cards" element={<DisplayModels url="/fight-card" />} />
 
 
+<<<<<<< HEAD
 
+=======
+        <Route path="/all-users" element={<AdminDashboard />} />
+        <Route path="/all-bets" element={<AdminDashboard />} />
+        <Route path="/all-fight-cards" element={<AdminDashboard />} />
+>>>>>>> e62d6ca (Add fightcard component and style)
       </Routes>
     </React.Fragment>
   );
 };
 
-
 export default App;
-
-
