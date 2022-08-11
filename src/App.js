@@ -1,13 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./components/Home/Home";
-import SignIn from "./components/SignIn/SignIn";
-import SignUp from "./components/SignUp/SignUp";
+import Home from "./components/Users/Display/Home/Home";
+import SignIn from "./components/Users/Display/SignIn/SignIn";
+import SignUp from "./components/Users/Display/SignUp/SignUp";
 
-import AdminDashboard from "./components/Admin/AdminDashboard";
-import AdminCreateFightCard from "./components/Forms/Admin_CreateFightCard"
-import AdminCreateUser from "./components/Forms/Admin_CreateUser"
+import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
+import AdminCreateFightCard from "./components/Admin/Forms/Admin_CreateFightCard"
+import AdminCreateUser from "./components/Admin/Forms/Admin_CreateUser"
+
 
 
 
@@ -21,7 +22,6 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
-
 
         {/* ADMIN INTERFACE */}
         <Route path="/admin" element={<AdminDashboard />} />

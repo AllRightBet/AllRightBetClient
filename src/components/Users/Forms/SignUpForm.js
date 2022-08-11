@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { signUp } from "../../api/auth";
+import { signUp } from "../../../api/auth";
 
 const SignUpForm = () => {
   const [firstName, setFirstName] = useState("");
