@@ -1,0 +1,19 @@
+.admin_container {
+  max-width: 900px;
+}
+
+.admin_link__container {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 600;
+  box-shadow: 10px 10px 5px gray;
+}
+
+.admin_link {
+  background-color: #129b00;
+  border: 2px solid #fbfbfb;
+  color: #fbfbfb;
+}

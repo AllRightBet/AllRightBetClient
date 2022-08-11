@@ -48,6 +48,16 @@ const SignUpForm = () => {
       <Form noValidate onSubmit={onSignUp}>
         <Row>
           <Col>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Profile Picture</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
+          </Col>
+        </Row>
+
+
+        <Row>
+          <Col>
             <Form.Group className="mb-3" controlId="formBasicFirstName">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -58,6 +68,7 @@ const SignUpForm = () => {
               />
             </Form.Group>
           </Col>
+
           <Col>
             <Form.Group className="mb-3" controlId="formBasicLastName">
               <Form.Label>Last Name</Form.Label>
@@ -67,9 +78,9 @@ const SignUpForm = () => {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
-            </Form.Group>
-          </Col>
-        </Row>
+            </Form.Group >
+          </Col >
+        </Row >
         <Form.Group className="mb-3" controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -77,7 +88,7 @@ const SignUpForm = () => {
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -92,12 +103,13 @@ const SignUpForm = () => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
+
           <Form.Control
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group >
         <Form.Group className="mb-3" controlId="formBasicAddress">
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -132,8 +144,8 @@ const SignUpForm = () => {
                 placeholder="Zip"
                 onChange={(e) => setZip(e.target.value)}
               />
-            </Form.Group>
-          </Col>
+            </Form.Group >
+          </Col >
           <Col>
             <Form.Group className="mb-3" controlId="formBasicAge">
               <Form.Label>Age</Form.Label>
@@ -145,14 +157,14 @@ const SignUpForm = () => {
               <Form.Text className="text-muted">
                 Must be 21 years or over to sign up.
               </Form.Text>
-            </Form.Group>
-          </Col>
-        </Row>
+            </Form.Group >
+          </Col >
+        </Row >
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form>
-    </Container>
+      </Form >
+    </Container >
   );
 };
 
