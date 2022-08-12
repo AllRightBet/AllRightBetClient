@@ -31,8 +31,6 @@ const App = () => {
         />
         <Route path="/getFightCard" element={<GetFightCard />} />
 
-        <Route path="/getFightCard" element={<GetFightCard />} />
-
         {/* ADMIN INTERFACE */}
         {/* todo : needs admin authentication */}
         <Route path="/admin" element={<AdminDashboard />} />
