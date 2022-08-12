@@ -15,7 +15,7 @@ const Home = () => {
       <Row>
         <Col className="link__column">
           <LinkContainer to="/" className="link__container">
-            <Nav.Link className="link">Add</Nav.Link>
+            <Nav.Link className="link">Add Chips</Nav.Link>
           </LinkContainer>
         </Col>
         <Col className="link__column">

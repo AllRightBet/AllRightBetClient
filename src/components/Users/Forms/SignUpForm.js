@@ -3,9 +3,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { signUp } from "../../api/auth";
+import { signUp } from "../../../api/auth";
+import Admin_CreateUser from "../../Admin/Forms/Admin_CreateUser";
 
-const SignUpForm = () => {
+const SignUpForm = ({ isAdmin }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -160,6 +161,11 @@ const SignUpForm = () => {
             </Form.Group >
           </Col >
         </Row >
+
+        {/* IF ADMIN */}
+        {isAdmin ? <Admin_CreateUser /> : null}
+
+
         <Button variant="primary" type="submit">
           Submit
         </Button>

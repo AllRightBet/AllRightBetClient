@@ -1,10 +1,10 @@
 import React from "react";
-import SignUpForm from "../Forms/SignUpForm";
+import SignUpForm from "../../Forms/SignUpForm";
 
 const SignUp = () => {
   return (
     <div>
-      <SignUpForm />
+      <SignUpForm isAdmin={false} />
     </div>
   );
 };
