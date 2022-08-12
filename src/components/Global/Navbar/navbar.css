@@ -1,0 +1,11 @@
+.nav__container {
+  background-color: #fbfbfb;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.nav_dropdown-container {
+  margin: 10px;
+  margin-left: 30px;
+}
