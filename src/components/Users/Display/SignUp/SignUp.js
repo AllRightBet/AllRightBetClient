@@ -1,7 +1,7 @@
 import React from "react";
 import SignUpForm from "../../Forms/SignUpForm";
 
-const SignUp = () => {
+const SignUp = ({ setUser, user }) => {
   return (
     <div>
       <SignUpForm isAdmin={false} />
