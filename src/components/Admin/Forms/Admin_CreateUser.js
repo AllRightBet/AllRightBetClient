@@ -13,12 +13,6 @@ import SignUpForm from '../../Users/Forms/SignUpForm';
 
 const Admin_CreateUser = () => {
 
-
-  const onSubmit = () => {
-
-  }
-
-
   return (
     <>
           <h1 className='mt-5 mb-3'>ADMIN HIDDEN USER ATTRIBUTES</h1>
