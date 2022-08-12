@@ -10,7 +10,7 @@ import AdminCreateFightCard from "./components/Admin/Forms/Admin_CreateFightCard
 import SignUpForm from "./components/Users/Forms/SignUpForm";
 import DisplayModels from "./components/DisplayModels";
 
-import GetFightCard from "./components/GetFightCard/GetFightCard";
+import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 
 const App = () => {
   return (

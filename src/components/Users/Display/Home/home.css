@@ -11,7 +11,7 @@
   height: 100%;
   z-index: -99;
   background-image: url("./../../../../../public/img/casino-pc.jpg");
-  filter: grayscale(100%) opacity(25%);
+  filter: grayscale(100%) opacity(35%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
