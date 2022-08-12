@@ -10,7 +10,7 @@ const Home = () => {
       <Row>
         <Col>
           <LinkContainer to="/" className="link__container">
-            <Nav.Link className="link">Add</Nav.Link>
+            <Nav.Link className="link">Add Chips</Nav.Link>
           </LinkContainer>
         </Col>
         <Col>
