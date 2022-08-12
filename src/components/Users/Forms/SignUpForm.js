@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { signUp } from "../../../api/auth";
-import Admin_CreateUser from "../../Admin/Forms/Admin_CreateUser";
+import InputGroup from 'react-bootstrap/InputGroup';
 
 const SignUpForm = ({ isAdmin }) => {
   const [firstName, setFirstName] = useState("");
@@ -163,7 +163,84 @@ const SignUpForm = ({ isAdmin }) => {
         </Row >
 
         {/* IF ADMIN */}
-        {isAdmin ? <Admin_CreateUser /> : null}
+        {isAdmin ?
+          <>
+            <h1 className='mt-5 mb-3'>ADMIN HIDDEN USER ATTRIBUTES</h1>
+            <Row>
+              <Col>
+                <Form.Label>Authorization Provider</Form.Label>
+                <div key='inline-radio' className="mb-3">
+                  <Form.Check
+                    inline
+                    label="Google"
+                    name="auth_group"
+                    type='radio'
+                    id="1"
+                  />
+
+                  <Form.Check
+                    inline
+                    label="Twitter"
+                    name="auth_group"
+                    type='radio'
+                    id="2"
+                  />
+
+                  <Form.Check
+                    inline
+                    label="GitHub"
+                    name="auth_group"
+                    type='radio'
+                    id="3"
+                  />
+
+                  <Form.Check
+                    inline
+                    label="Admin"
+                    name="auth_group"
+                    type='radio'
+                    id="4"
+                  />
+
+                </div>
+              </Col>
+            </Row>
+
+            <Row>
+
+              <Col>
+                <Form.Label>Wallet Amount</Form.Label>
+                <InputGroup className="mb-3">
+                  <InputGroup.Text>$</InputGroup.Text>
+                  <Form.Control aria-label="Wallet Amount" />
+                  <InputGroup.Text>.00</InputGroup.Text>
+                </InputGroup>
+              </Col>
+
+              <Col>
+                <Form.Group className="mb-3" controlId="formPaymentMethod">
+                  <Form.Label>Payment Method</Form.Label>
+                  <Form.Control type="text" placeholder="Payment Method" />
+                </Form.Group>
+              </Col>
+
+            </Row>
+
+
+            <Row >
+              <Col>
+                <Form.Check className='mt-3'
+                  type="switch"
+                  id="formBasicAdmin"
+                  label="Admin"
+                />
+              </Col>
+            </Row>
+
+          </> : null}
+
+
+
 
 
         <Button variant="primary" type="submit">

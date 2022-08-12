@@ -37,7 +37,6 @@ const App = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/create-fight-card" element={<AdminCreateFightCard />} />
         <Route path="/create-user" element={<SignUpForm isAdmin={true} />} />
-
         <Route path="/all-users" element={<DisplayModels url="/user" />} />
         <Route path="/all-bets" element={<DisplayModels url="/bet" />} />
         <Route path="/all-fight-cards" element={<DisplayModels url="/fight-card" />} />
