@@ -9,8 +9,6 @@
 
 html {
   /* root font size. 1rem is 10px now. Use a percentage just in case the user changes the font size. */
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
 /* It is good practice to define all the font properties in the body to be inherited by all the other elements.*/

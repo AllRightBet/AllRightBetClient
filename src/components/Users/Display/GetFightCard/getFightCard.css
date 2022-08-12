@@ -1,0 +1,63 @@
+.fightCard__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fightCard__heading-container {
+  max-width: 800px;
+  margin-bottom: 10px;
+}
+
+.fightCard__heading-text {
+  display: flex;
+  justify-content: center;
+}
+
+.fightCard__opponent-name-container {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.fightCard__opponent-name {
+  width: 350px;
+  height: 150px;
+  display: inline-block;
+  border: 3px solid black;
+  border-radius: 10px;
+  transform: skewX(-20deg);
+}
+
+.fightCard__opponent-container {
+  padding: 20px;
+  width: 800px;
+  border-radius: 20px;
+  /* margin: 0 auto; */
+  border: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fightCard__opponent {
+  height: 40rem;
+  flex-basis: 40%;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  padding-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fighCard__opponent-img-container {
+  height: 20%;
+}
+
+.fightCard__opponent-img {
+  max-height: 100%;
+}
