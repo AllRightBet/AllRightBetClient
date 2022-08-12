@@ -1,25 +1,26 @@
 import "./getFightCard.css";
+import FightCardBody from "./FightCardBody";
 import React from "react";
+import FightCardHeader from "./FightCardHeader";
+import FightCardNamePlack from "./FightCardNamePlack";
 
 const GetFightCard = () => {
   return (
     <div className="fightCard__container">
-      <div className="fightCard__heading-container">
-        <div className="fightCard__heading-text">
-          <h2 className="heading-text">FightCard Text</h2>
-        </div>
-      </div>
+      <FightCardHeader text="Header Text" />
       <div className="fightCard__opponent-name-container">
-        <div className="fightCard__opponent-name">
-          <h3 className="fightCard__opponent-name-text">Opp Name</h3>
-        </div>
-        <div className="fightCard__opponent-name">
-          <h3 className="fightCard__opponent-name-text">Opp Name</h3>
-        </div>
+        <FightCardNamePlack />
+        <FightCardNamePlack />
       </div>
       <div className="fightCard__opponent-container">
-        <div className="fightCard__opponent"></div>
-        <div className="fightCard__opponent"></div>
+        <FightCardBody
+          img="/img/chicago-bears-logo.png"
+          alt="Chicago Bears Logo"
+        />
+        <FightCardBody
+          img="/img/detroit-lions-logo.png"
+          alt="Detroit Lions Logo"
+        />
       </div>
     </div>
   );
