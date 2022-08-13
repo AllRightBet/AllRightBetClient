@@ -43,7 +43,7 @@ const SignUpForm = ({ isAdmin }) => {
           auth_provider,
           wallet_amount,
           payment_method,
-          admin,
+          !admin,
         );
         console.log(res.data);
       } catch (error) {
@@ -248,7 +248,7 @@ const SignUpForm = ({ isAdmin }) => {
                   id="formBasicAdmin"
                   label="Admin"
                   checked = {!admin}
-                  onChange={(e) => {setAdmin(!admin) ; console.log(admin)} } 
+                  onChange={(e) => {setAdmin(!admin)} } 
                   />
               </Col>
             </Row>
