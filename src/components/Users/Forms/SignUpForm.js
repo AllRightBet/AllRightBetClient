@@ -247,9 +247,9 @@ const SignUpForm = ({ isAdmin }) => {
                   type="switch"
                   id="formBasicAdmin"
                   label="Admin"
-                  checked = {!admin}
-                  onChange={(e) => {setAdmin(!admin)} } 
-                  />
+                  checked={!admin}
+                  onChange={(e) => { setAdmin(!admin) }}
+                />
               </Col>
             </Row>
 
