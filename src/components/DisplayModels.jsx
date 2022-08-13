@@ -27,7 +27,7 @@ const DisplayModels = ({ url }) => {
     // ON PAGE RENDER
     useEffect(() => {
         fetch_data()
-    }, []);
+    });
 
 
 

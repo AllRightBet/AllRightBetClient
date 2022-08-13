@@ -18,6 +18,12 @@ const SignUpForm = ({ isAdmin }) => {
   const [zip, setZip] = useState("");
   const [age, setAge] = useState("");
 
+
+  const [auth_provider, setAuth_provider] = useState("null");
+  const [wallet_amount, setWallet_amount] = useState(0);
+  const [payment_method, setPayment_method] = useState("");
+  const [admin, setAdmin] = useState(false);
+
   const onSignUp = (event) => {
     event.preventDefault();
 
@@ -33,7 +39,11 @@ const SignUpForm = ({ isAdmin }) => {
           state,
           city,
           zip,
-          age
+          age,
+          auth_provider,
+          wallet_amount,
+          payment_method,
+          admin,
         );
         console.log(res.data);
       } catch (error) {
@@ -175,7 +185,8 @@ const SignUpForm = ({ isAdmin }) => {
                     label="Google"
                     name="auth_group"
                     type='radio'
-                    id="1"
+                    id="Google"
+                    onChange={(e) => setAuth_provider(e.target.id)}
                   />
 
                   <Form.Check
@@ -183,7 +194,8 @@ const SignUpForm = ({ isAdmin }) => {
                     label="Twitter"
                     name="auth_group"
                     type='radio'
-                    id="2"
+                    id="Twitter"
+                    onChange={(e) => setAuth_provider(e.target.id)}
                   />
 
                   <Form.Check
@@ -191,7 +203,8 @@ const SignUpForm = ({ isAdmin }) => {
                     label="GitHub"
                     name="auth_group"
                     type='radio'
-                    id="3"
+                    id="GitHub"
+                    onChange={(e) => setAuth_provider(e.target.id)}
                   />
 
                   <Form.Check
@@ -199,20 +212,21 @@ const SignUpForm = ({ isAdmin }) => {
                     label="Admin"
                     name="auth_group"
                     type='radio'
-                    id="4"
+                    id="Admin"
+                    onChange={(e) => setAuth_provider(e.target.id)}
                   />
-
                 </div>
               </Col>
             </Row>
 
-            <Row>
 
+            <Row>
               <Col>
                 <Form.Label>Wallet Amount</Form.Label>
                 <InputGroup className="mb-3">
                   <InputGroup.Text>$</InputGroup.Text>
-                  <Form.Control aria-label="Wallet Amount" />
+                  <Form.Control aria-label="Wallet Amount"
+                    onChange={(e) => setWallet_amount(e.target.value)} />
                   <InputGroup.Text>.00</InputGroup.Text>
                 </InputGroup>
               </Col>
@@ -220,10 +234,10 @@ const SignUpForm = ({ isAdmin }) => {
               <Col>
                 <Form.Group className="mb-3" controlId="formPaymentMethod">
                   <Form.Label>Payment Method</Form.Label>
-                  <Form.Control type="text" placeholder="Payment Method" />
+                  <Form.Control type="text" placeholder="Payment Method"
+                    onChange={(e) => setPayment_method(e.target.value)} />
                 </Form.Group>
               </Col>
-
             </Row>
 
 
@@ -233,9 +247,12 @@ const SignUpForm = ({ isAdmin }) => {
                   type="switch"
                   id="formBasicAdmin"
                   label="Admin"
-                />
+                  checked = {!admin}
+                  onChange={(e) => {setAdmin(!admin) ; console.log(admin)} } 
+                  />
               </Col>
             </Row>
+
 
           </> : null}
 

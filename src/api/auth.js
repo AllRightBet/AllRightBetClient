@@ -11,7 +11,11 @@ export const signUp = (
   state,
   city,
   zip,
-  age
+  age,
+  auth_provider,
+  wallet_amount,
+  payment_method,
+  admin,
 ) => {
   return axios({
     headers: {
@@ -30,6 +34,11 @@ export const signUp = (
       city: city,
       zip: zip,
       age: age,
+      authProvider : auth_provider,
+      wallet_balance : wallet_amount,
+      payment_method : payment_method,
+      admin_role : admin,
+      profilePic_uri : null,
     },
   });
 };
