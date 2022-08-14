@@ -14,8 +14,10 @@ import DisplayModels from "./components/DisplayModels";
 import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 import Navbar from "./components/Global/Navbar/Navbar";
 
+
+
 const App = () => {
-  const [user, setUser] = useState("SignedIn");
+  const [user, setUser] = useState(null);
 
   const notLoggedIn = (
     <Routes>

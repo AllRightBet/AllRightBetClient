@@ -5,8 +5,11 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { signUp } from "../../../api/auth";
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = ({ isAdmin }) => {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -22,7 +25,7 @@ const SignUpForm = ({ isAdmin }) => {
   const [auth_provider, setAuth_provider] = useState("null");
   const [wallet_amount, setWallet_amount] = useState(0);
   const [payment_method, setPayment_method] = useState("");
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(true);
 
   const onSignUp = (event) => {
     event.preventDefault();
@@ -52,6 +55,13 @@ const SignUpForm = ({ isAdmin }) => {
     };
 
     createUser();
+    if (isAdmin) {
+      navigate("/admin")
+    }
+    else{
+      navigate("/")
+      
+    }
   };
 
   return (
@@ -252,7 +262,6 @@ const SignUpForm = ({ isAdmin }) => {
                 />
               </Col>
             </Row>
-
 
           </> : null}
 

@@ -7,11 +7,6 @@ import { Col, Container, Row } from "react-bootstrap";
 const Home = () => {
   return (
     <Container className="container">
-      {/* <img
-        src={process.env.PUBLIC_URL + "/img/casino-pc.jpg"}
-        alt="dice and chips falling"
-        className="home__background"
-      /> */}
       <Row>
         <Col className="link__column">
           <LinkContainer to="/" className="link__container">

@@ -5,11 +5,12 @@ import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
 
 import { createFightCard } from "../../../api/createFightCard";
-
-
+import { useNavigate } from "react-router-dom";
 
 
 const Admin_CreateFightCard = () => {
+
+    const navigate = useNavigate();
 
     const [opponent_1, setOpponent_1] = useState("");
     const [opponent_2, setOpponent_2] = useState("");
@@ -34,6 +35,7 @@ const Admin_CreateFightCard = () => {
         };
 
         createCard();
+        navigate('/admin');
     };
 
 
