@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { signUp } from "../../../api/auth";
-<<<<<<< HEAD
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 
@@ -274,17 +273,12 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
                 />
               </Col>
             </Row>
-<<<<<<< HEAD
 
           </> : null}
 
 
 
 
-=======
-          </>
-        ) : null}
->>>>>>> feature/add-chips
 
         <Button variant="primary" type="submit">
           Submit
