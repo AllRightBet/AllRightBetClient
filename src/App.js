@@ -1,5 +1,5 @@
 import "./app.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./components/Users/Display/Home/Home";
@@ -18,13 +18,24 @@ import Navbar from "./components/Global/Navbar/Navbar";
 
 const App = () => {
   const [user, setUser] = useState(null);
+<<<<<<< HEAD
+=======
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    console.log(user);
+  }, [user]);
+>>>>>>> feature/add-chips
 
   const notLoggedIn = (
     <Routes>
       {/* USER INTERFACE */}
       <Route exact path="/" element={<SignIn />} />
       <Route path="/signIn" element={<SignIn />} />
-      <Route path="/signUp" element={<SignUp />} />
+      <Route
+        path="/signUp"
+        element={<SignUp setUser={setUser} user={user} />}
+      />
     </Routes>
   );
 

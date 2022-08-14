@@ -4,7 +4,7 @@ import SignUpForm from "../../Forms/SignUpForm";
 const SignUp = ({ setUser, user }) => {
   return (
     <div>
-      <SignUpForm isAdmin={false} />
+      <SignUpForm isAdmin={false} setUser={setUser} user={user} />
     </div>
   );
 };

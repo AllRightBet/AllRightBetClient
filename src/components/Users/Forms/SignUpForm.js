@@ -4,12 +4,18 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { signUp } from "../../../api/auth";
+<<<<<<< HEAD
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useNavigate } from "react-router-dom";
 
 const SignUpForm = ({ isAdmin }) => {
   const navigate = useNavigate();
 
+=======
+import InputGroup from "react-bootstrap/InputGroup";
+
+const SignUpForm = ({ isAdmin, setUser, user }) => {
+>>>>>>> feature/add-chips
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -20,7 +26,6 @@ const SignUpForm = ({ isAdmin }) => {
   const [city, setCity] = useState("");
   const [zip, setZip] = useState("");
   const [age, setAge] = useState("");
-
 
   const [auth_provider, setAuth_provider] = useState("null");
   const [wallet_amount, setWallet_amount] = useState(0);
@@ -46,9 +51,10 @@ const SignUpForm = ({ isAdmin }) => {
           auth_provider,
           wallet_amount,
           payment_method,
-          !admin,
+          !admin
         );
         console.log(res.data);
+        setUser(res.data);
       } catch (error) {
         console.log("error message: ", error);
       }
@@ -76,7 +82,6 @@ const SignUpForm = ({ isAdmin }) => {
           </Col>
         </Row>
 
-
         <Row>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicFirstName">
@@ -99,9 +104,9 @@ const SignUpForm = ({ isAdmin }) => {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
-            </Form.Group >
-          </Col >
-        </Row >
+            </Form.Group>
+          </Col>
+        </Row>
         <Form.Group className="mb-3" controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -109,7 +114,7 @@ const SignUpForm = ({ isAdmin }) => {
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
           />
-        </Form.Group >
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -130,7 +135,7 @@ const SignUpForm = ({ isAdmin }) => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-        </Form.Group >
+        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicAddress">
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -165,8 +170,8 @@ const SignUpForm = ({ isAdmin }) => {
                 placeholder="Zip"
                 onChange={(e) => setZip(e.target.value)}
               />
-            </Form.Group >
-          </Col >
+            </Form.Group>
+          </Col>
           <Col>
             <Form.Group className="mb-3" controlId="formBasicAge">
               <Form.Label>Age</Form.Label>
@@ -178,23 +183,23 @@ const SignUpForm = ({ isAdmin }) => {
               <Form.Text className="text-muted">
                 Must be 21 years or over to sign up.
               </Form.Text>
-            </Form.Group >
-          </Col >
-        </Row >
+            </Form.Group>
+          </Col>
+        </Row>
 
         {/* IF ADMIN */}
-        {isAdmin ?
+        {isAdmin ? (
           <>
-            <h1 className='mt-5 mb-3'>ADMIN HIDDEN USER ATTRIBUTES</h1>
+            <h1 className="mt-5 mb-3">ADMIN HIDDEN USER ATTRIBUTES</h1>
             <Row>
               <Col>
                 <Form.Label>Authorization Provider</Form.Label>
-                <div key='inline-radio' className="mb-3">
+                <div key="inline-radio" className="mb-3">
                   <Form.Check
                     inline
                     label="Google"
                     name="auth_group"
-                    type='radio'
+                    type="radio"
                     id="Google"
                     onChange={(e) => setAuth_provider(e.target.id)}
                   />
@@ -203,7 +208,7 @@ const SignUpForm = ({ isAdmin }) => {
                     inline
                     label="Twitter"
                     name="auth_group"
-                    type='radio'
+                    type="radio"
                     id="Twitter"
                     onChange={(e) => setAuth_provider(e.target.id)}
                   />
@@ -212,7 +217,7 @@ const SignUpForm = ({ isAdmin }) => {
                     inline
                     label="GitHub"
                     name="auth_group"
-                    type='radio'
+                    type="radio"
                     id="GitHub"
                     onChange={(e) => setAuth_provider(e.target.id)}
                   />
@@ -221,7 +226,7 @@ const SignUpForm = ({ isAdmin }) => {
                     inline
                     label="Admin"
                     name="auth_group"
-                    type='radio'
+                    type="radio"
                     id="Admin"
                     onChange={(e) => setAuth_provider(e.target.id)}
                   />
@@ -229,14 +234,15 @@ const SignUpForm = ({ isAdmin }) => {
               </Col>
             </Row>
 
-
             <Row>
               <Col>
                 <Form.Label>Wallet Amount</Form.Label>
                 <InputGroup className="mb-3">
                   <InputGroup.Text>$</InputGroup.Text>
-                  <Form.Control aria-label="Wallet Amount"
-                    onChange={(e) => setWallet_amount(e.target.value)} />
+                  <Form.Control
+                    aria-label="Wallet Amount"
+                    onChange={(e) => setWallet_amount(e.target.value)}
+                  />
                   <InputGroup.Text>.00</InputGroup.Text>
                 </InputGroup>
               </Col>
@@ -244,36 +250,47 @@ const SignUpForm = ({ isAdmin }) => {
               <Col>
                 <Form.Group className="mb-3" controlId="formPaymentMethod">
                   <Form.Label>Payment Method</Form.Label>
-                  <Form.Control type="text" placeholder="Payment Method"
-                    onChange={(e) => setPayment_method(e.target.value)} />
+                  <Form.Control
+                    type="text"
+                    placeholder="Payment Method"
+                    onChange={(e) => setPayment_method(e.target.value)}
+                  />
                 </Form.Group>
               </Col>
             </Row>
 
-
-            <Row >
+            <Row>
               <Col>
-                <Form.Check className='mt-3'
+                <Form.Check
+                  className="mt-3"
                   type="switch"
                   id="formBasicAdmin"
                   label="Admin"
                   checked={!admin}
-                  onChange={(e) => { setAdmin(!admin) }}
+                  onChange={(e) => {
+                    setAdmin(!admin);
+                    console.log(admin);
+                  }}
                 />
               </Col>
             </Row>
+<<<<<<< HEAD
 
           </> : null}
 
 
 
 
+=======
+          </>
+        ) : null}
+>>>>>>> feature/add-chips
 
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form >
-    </Container >
+      </Form>
+    </Container>
   );
 };
 
