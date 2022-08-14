@@ -43,7 +43,7 @@ const Navbar = ({ setUser, user }) => {
     </Nav>
   );
 
-  return <>{user !== null ? loggedIn : notLoggedIn}</>;
+  return <>{user ? loggedIn : notLoggedIn}</>;
 };
 
 export default Navbar;

@@ -21,7 +21,7 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
   const [auth_provider, setAuth_provider] = useState("null");
   const [wallet_amount, setWallet_amount] = useState(0);
   const [payment_method, setPayment_method] = useState("");
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(true);
 
   const onSignUp = (event) => {
     event.preventDefault();
@@ -44,14 +44,15 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
           payment_method,
           !admin
         );
+        console.log(res.data);
         setUser(res.data);
+        console.log(user.type);
       } catch (error) {
         console.log("error message: ", error);
       }
     };
 
     createUser();
-    console.log(user);
   };
 
   return (
@@ -253,6 +254,7 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
                   checked={!admin}
                   onChange={(e) => {
                     setAdmin(!admin);
+                    console.log(admin);
                   }}
                 />
               </Col>
