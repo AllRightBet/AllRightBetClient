@@ -14,18 +14,13 @@ import DisplayModels from "./components/DisplayModels";
 import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 import Navbar from "./components/Global/Navbar/Navbar";
 
-
-
 const App = () => {
   const [user, setUser] = useState(null);
-<<<<<<< HEAD
-=======
 
   useEffect(() => {
     // Update the document title using the browser API
     console.log(user);
   }, [user]);
->>>>>>> feature/add-chips
 
   const notLoggedIn = (
     <Routes>
