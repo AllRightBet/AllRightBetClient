@@ -46,7 +46,6 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
         );
         console.log(res.data);
         setUser(res.data);
-        console.log(user.type);
       } catch (error) {
         console.log("error message: ", error);
       }
