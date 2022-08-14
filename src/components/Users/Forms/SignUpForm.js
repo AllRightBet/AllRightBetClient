@@ -4,17 +4,12 @@ import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { signUp } from "../../../api/auth";
-import InputGroup from 'react-bootstrap/InputGroup';
+import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 
-const SignUpForm = ({ isAdmin }) => {
+const SignUpForm = ({ isAdmin, setUser, user }) => {
   const navigate = useNavigate();
 
-=======
-import InputGroup from "react-bootstrap/InputGroup";
-
-const SignUpForm = ({ isAdmin, setUser, user }) => {
->>>>>>> feature/add-chips
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -60,12 +55,10 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
     };
 
     createUser();
-    if (isAdmin) {
-      navigate("/admin")
-    }
-    else{
-      navigate("/")
-      
+    if (user && isAdmin) {
+      navigate("/admin");
+    } else {
+      navigate("/");
     }
   };
 
@@ -273,12 +266,8 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
                 />
               </Col>
             </Row>
-
-          </> : null}
-
-
-
-
+          </>
+        ) : null}
 
         <Button variant="primary" type="submit">
           Submit
