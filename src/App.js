@@ -15,14 +15,14 @@ import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 import Navbar from "./components/Global/Navbar/Navbar";
 
 const App = () => {
-  const [user, setUser] = useState("SignedIn");
+  const [user, setUser] = useState(null);
 
   const notLoggedIn = (
     <Routes>
       {/* USER INTERFACE */}
       <Route exact path="/" element={<SignIn />} />
       <Route path="/signIn" element={<SignIn />} />
-      <Route path="/signUp" element={<SignUp />} />
+      <Route path="/signUp" element={<SignUp setUser={setUser} user />} />
     </Routes>
   );
 
