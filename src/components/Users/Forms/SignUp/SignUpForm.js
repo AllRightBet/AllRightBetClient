@@ -48,7 +48,7 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
       .oneOf([Yup.ref('password')], 'Passwords does not match'),
   })
   const formOptions = { resolver: yupResolver(formSchema) }
-  const { register, handleSubmit, reset, formState } = useForm(formOptions)
+  const { register, handleSubmit, formState } = useForm(formOptions)
   const { errors } = formState
 
 

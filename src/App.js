@@ -12,15 +12,39 @@ import DisplayModels from "./components/DisplayModels";
 import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 import Navbar from "./components/Global/Navbar/Navbar";
 import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
+import DepositFunds from "./components/Users/Forms/Wallet/HandleFunds";
+
+import { loadStripe } from '@stripe/stripe-js';
+
+
+
+
+
+// INIT STRIPE PAYMENT OBJECTS
+//TODO: USE SPRING API TO SERVE STRIPE CREDENTIALS
+const stripePromise = loadStripe("pk_test_BDT6hqtqNcW6MwYguNEYe2Wa00vTqDikAb");
+
+
+
+
 
 
 const App = () => {
+
+  // STATES
   const [user, setUser] = useState(null);
+  const [stripeSecret, setStripeSecret] = useState("");
+
+
 
   useEffect(() => {
-    // Update the document title using the browser API
     console.log(user);
   }, [user]);
+
+
+
+
+
 
   const notLoggedIn = (
     <Routes>
@@ -31,20 +55,27 @@ const App = () => {
         element={<SignIn setUser={setUser} user={user} />}
       />
       <Route
-        path="/signIn"
-        element={<SignIn setUser={setUser} user={user} />}
-      />
-      <Route
         path="/signUp"
         element={<SignUp setUser={setUser} user={user} />}
       />
     </Routes>
   );
 
+
   const loggedIn = (
     <Routes>
       {/* USER INTERFACE */}
-      <Route exact path="/" element={<Home />} />
+      <Route exact path="/" element={<Home user={user} />} />
+
+      <Route exact path="/deposit-funds" element={
+        <DepositFunds stripePromise={stripePromise} stripeSecret={stripeSecret}
+        user={user} setUser={setUser} deposit={true}/>
+      } />
+
+      <Route exact path="/withdraw-funds" element={
+        <DepositFunds stripePromise={stripePromise} stripeSecret={stripeSecret}
+        user={user} setUser={setUser} deposit={false} />
+      } />
 
       <Route
         path="/user-bets"
