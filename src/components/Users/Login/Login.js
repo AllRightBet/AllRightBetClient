@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { fetchAllUsers } from "../../../api/auth";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-const Login = ({ setUser, user, history }) => {
+const Login = ({ setUser, user }) => {
   // const navigate = useNavigate();
   const [email_input, setEmail] = useState("");
   const [password_input, setPassword] = useState("");
@@ -51,7 +53,6 @@ const Login = ({ setUser, user, history }) => {
         checkIfCredsMatchDb(email_input, password_input, users)
       ) {
         console.log("user signed in");
-        history.push("/");
       } else {
         console.log("Wrong credentials");
       }
@@ -60,29 +61,28 @@ const Login = ({ setUser, user, history }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Email:</p>
-          <input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="text"
+      <Form noValidate onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            onChange={(e) => setEmail(e.target.value)}
           />
-        </label>
-
-        <label>
-          <p>Password:</p>
-          <input
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            type="text"
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter password"
+            onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
+        </Form.Group>
 
-        <input type="submit" />
-      </form>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     </>
   );
 };
