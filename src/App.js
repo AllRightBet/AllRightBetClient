@@ -25,8 +25,15 @@ const App = () => {
   const notLoggedIn = (
     <Routes>
       {/* USER INTERFACE */}
-      <Route exact path="/" element={<SignIn />} />
-      <Route path="/signIn" element={<SignIn />} />
+      <Route
+        exact
+        path="/"
+        element={<SignIn setUser={setUser} user={user} />}
+      />
+      <Route
+        path="/signIn"
+        element={<SignIn setUser={setUser} user={user} />}
+      />
       <Route
         path="/signUp"
         element={<SignUp setUser={setUser} user={user} />}
