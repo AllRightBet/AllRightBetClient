@@ -1,32 +1,35 @@
 import React, { useState } from "react";
 import { fetchAllUsers } from "../../../api/auth";
-import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+// import { useNavigate } from "react-router-dom";
+
+
 const Login = ({ setUser, user }) => {
   // const navigate = useNavigate();
+
+
   const [email_input, setEmail] = useState("");
   const [password_input, setPassword] = useState("");
-
   const [users, setUsers] = useState([]);
+
+
 
   function ValidateEmail() {
     if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email_input)) {
       return true;
     }
-
-    console.log("You have entered an invalid email address!");
     return false;
   }
 
-  // function ValidatePassword() {
-  //   if (password_input.length < 6) {
-  //     alert("Password must be at least 6 characters.")
-  //     return false
-  //   }
-  //   return true
-  // }
+  function ValidatePassword() {
+    if (password_input.length < 6) {
+      alert("Password must be at least 6 characters.")
+      return false
+    }
+    return true
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,6 +53,7 @@ const Login = ({ setUser, user }) => {
     getUsers().then(() => {
       if (
         ValidateEmail() &&
+        ValidatePassword() &&
         checkIfCredsMatchDb(email_input, password_input, users)
       ) {
         console.log("user signed in");

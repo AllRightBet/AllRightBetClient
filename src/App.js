@@ -8,11 +8,11 @@ import SignUp from "./components/Users/Display/SignUp/SignUp";
 
 import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
 import AdminCreateFightCard from "./components/Admin/Forms/Admin_CreateFightCard";
-import SignUpForm from "./components/Users/Forms/SignUpForm";
 import DisplayModels from "./components/DisplayModels";
-
 import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 import Navbar from "./components/Global/Navbar/Navbar";
+import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -57,7 +57,6 @@ const App = () => {
       <Route path="/getFightCard" element={<GetFightCard />} />
 
       {/* ADMIN INTERFACE */}
-      {/* todo : needs admin authentication */}
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/create-fight-card" element={<AdminCreateFightCard />} />
       <Route path="/create-user" element={<SignUpForm isAdmin={true} />} />

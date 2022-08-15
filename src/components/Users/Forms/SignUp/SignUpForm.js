@@ -1,13 +1,26 @@
-import "./signUpForm.css";
+import { useNavigate } from "react-router-dom";
+
+
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as Yup from 'yup'
+
 import Button from "react-bootstrap/Button";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { signUp } from "../../../api/auth";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useNavigate } from "react-router-dom";
+import { signUp } from "../../../../api/auth";
+
+
+
 
 const SignUpForm = ({ isAdmin, setUser, user }) => {
+  
+  const navigate = useNavigate();
+
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -24,8 +37,23 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
   const [payment_method, setPayment_method] = useState("");
   const [admin, setAdmin] = useState(true);
 
-  const onSignUp = (event) => {
-    event.preventDefault();
+
+  // FORM HOOK CONFIG
+  const formSchema = Yup.object().shape({
+    password: Yup.string()
+      .required('Password is mendatory')
+      .min(6, 'Password must be at 6 char long'),
+    confirmPwd: Yup.string()
+      .required('Password is mendatory')
+      .oneOf([Yup.ref('password')], 'Passwords does not match'),
+  })
+  const formOptions = { resolver: yupResolver(formSchema) }
+  const { register, handleSubmit, reset, formState } = useForm(formOptions)
+  const { errors } = formState
+
+
+
+  const onSignUp = () => {
 
     const createUser = async () => {
       try {
@@ -45,7 +73,6 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
           payment_method,
           !admin
         );
-        console.log(res.data);
         setUser(res.data);
       } catch (error) {
         console.log("error message: ", error);
@@ -53,16 +80,17 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
     };
 
     createUser();
-    // if (user && isAdmin) {
-    //   navigate("/admin");
-    // } else {
-    //   navigate("/");
-    // }
+    if (user && isAdmin) {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+    console.log(user)
   };
 
   return (
     <Container>
-      <Form noValidate onSubmit={onSignUp}>
+      <Form noValidate onSubmit={handleSubmit(onSignUp)}>
         <Row>
           <Col>
             <Form.Group controlId="formFile" className="mb-3">
@@ -120,12 +148,26 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
 
-          <Form.Control
+          <input
+            name="password"
             type="password"
-            placeholder="Password"
+            {...register('password')}
+            className={`form-control ${errors.password ? 'is-invalid' : ''}`}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
+
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <label>Confirm Password</label>
+          <input
+            name="confirmPwd"
+            type="password"
+            {...register('confirmPwd')}
+            className={`form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}
+          />
+        </Form.Group>
+
         <Form.Group className="mb-3" controlId="formBasicAddress">
           <Form.Label>Address</Form.Label>
           <Form.Control
