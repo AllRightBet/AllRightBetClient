@@ -87,6 +87,12 @@ const App = () => {
       />
       <Route path="/getFightCard" element={<GetFightCard />} />
 
+      {/* <Route path="/settings" element={<Home />} />
+      <Route path="/event" element={<Home />} />
+      <Route path="/history" element={<Home />} />
+      <Route path="/top-bets" element={<Home />} /> */}
+
+
       {/* ADMIN INTERFACE */}
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/create-fight-card" element={<AdminCreateFightCard />} />

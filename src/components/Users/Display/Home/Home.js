@@ -14,7 +14,7 @@ const Home = ({user}) => {
           </LinkContainer>
         </Col>
         <Col className="link__column">
-          <LinkContainer to="/" className="link__container">
+          <LinkContainer to="/event" className="link__container">
             <Nav.Link className="link">${user.wallet_balance}</Nav.Link>
           </LinkContainer>
         </Col>
@@ -26,19 +26,19 @@ const Home = ({user}) => {
           </LinkContainer>
         </Col>
         <Col className="link__column">
-          <LinkContainer to="/" className="link__container">
+          <LinkContainer to="/history" className="link__container">
             <Nav.Link className="link">History</Nav.Link>
           </LinkContainer>
         </Col>
       </Row>
       <Row>
         <Col className="link__column">
-          <LinkContainer to="/" className="link__container">
+          <LinkContainer to="/settings" className="link__container">
             <Nav.Link className="link">Settings</Nav.Link>
           </LinkContainer>
         </Col>
         <Col className="link__column">
-          <LinkContainer to="/" className="link__container">
+          <LinkContainer to="/top-bets" className="link__container">
             <Nav.Link className="link">Top-Bets</Nav.Link>
           </LinkContainer>
         </Col>
