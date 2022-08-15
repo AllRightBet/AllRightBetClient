@@ -8,8 +8,6 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 
 const SignUpForm = ({ isAdmin, setUser, user }) => {
-  const navigate = useNavigate();
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
@@ -55,11 +53,11 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
     };
 
     createUser();
-    if (user && isAdmin) {
-      navigate("/admin");
-    } else {
-      navigate("/");
-    }
+    // if (user && isAdmin) {
+    //   navigate("/admin");
+    // } else {
+    //   navigate("/");
+    // }
   };
 
   return (

@@ -19,7 +19,9 @@ const Navbar = ({ setUser, user }) => {
         id="nav-dropdown"
       >
         <NavDropdown.Item eventKey="4.1">Log In</NavDropdown.Item>
-        <NavDropdown.Item eventKey="4.2">Create Account</NavDropdown.Item>
+        <NavDropdown.Item eventKey="4.2" onSelect={handleSelect}>
+          Create Account
+        </NavDropdown.Item>
       </NavDropdown>
     </Nav>
   );

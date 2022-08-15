@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "../../Forms/Login/Login";
+import Login from "../../Login/Login";
 
+import "./SignIn.css";
 
-import './SignIn.css';
-
-const SignIn = () => {
+const SignIn = ({ setUser, user }) => {
   return (
     <div className="login-wrapper">
-      <Login/>
+      <Login setUser={setUser} user={user} />
       <Link to="/signUp">Create Account</Link>
     </div>
   );

@@ -15,7 +15,7 @@ export const signUp = (
   auth_provider,
   wallet_amount,
   payment_method,
-  admin,
+  admin
 ) => {
   return axios({
     headers: {
@@ -34,11 +34,21 @@ export const signUp = (
       city: city,
       zip: zip,
       age: age,
-      authProvider : auth_provider,
-      wallet_balance : wallet_amount,
-      payment_method : payment_method,
-      admin_role : admin,
-      profilePic_uri : null,
+      authProvider: auth_provider,
+      wallet_balance: wallet_amount,
+      payment_method: payment_method,
+      admin_role: admin,
+      profilePic_uri: null,
     },
+  });
+};
+
+export const fetchAllUsers = () => {
+  return axios({
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+    url: apiUrl + "/user",
   });
 };
