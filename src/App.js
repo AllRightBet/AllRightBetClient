@@ -87,7 +87,11 @@ const App = () => {
       />
       <Route path="/getFightCard" element={<GetFightCard />} />
 
-      <Route path="/history" element={<DisplayModels url={`/user-history?email=${user['email']}`} />} />
+      {
+        user ? <Route path="/history" element={<DisplayModels url={`/user-history?email=${user['email']}`} />} />
+        : null
+      }
+
 
       <Route path="/top-bets" element={<DisplayModels url={'/top-bets'} />} />
 

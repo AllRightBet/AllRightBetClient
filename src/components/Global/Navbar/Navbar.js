@@ -52,6 +52,10 @@ const Navbar = ({ setUser, user }) => {
           <Nav.Link  >Home</Nav.Link>
         </LinkContainer></NavDropdown.Item>
 
+        <NavDropdown.Item> <LinkContainer to="/deposit-funds" >
+          <Nav.Link  >Deposit Funds</Nav.Link>
+        </LinkContainer></NavDropdown.Item>
+
         <NavDropdown.Item> <LinkContainer to="/withdraw-funds" >
           <Nav.Link  >Withdraw Funds</Nav.Link>
         </LinkContainer></NavDropdown.Item>

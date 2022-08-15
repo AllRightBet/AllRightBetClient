@@ -9,6 +9,7 @@ import { Elements } from '@stripe/react-stripe-js';
 
 
 import { updateDB } from '../../../../api/updateUser';
+import Fader from '../../../Messages/Fader';
 
 
 
@@ -37,13 +38,12 @@ const CARD_OPTIONS = {
 
 const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) => {
 
-
     const [input_amount, setDeposit_amount] = useState(0.0);
     const [success, setSuccess] = useState(false);
 
+    const wallet_action = deposit ? "Deposit" : "Withdraw"
 
-
-
+    
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -51,9 +51,9 @@ const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) =>
             try {
 
                 let amount = 0;
-                if (deposit) amount = parseFloat(user['wallet_balance']) + parseFloat(input_amount) 
-                else amount = parseFloat(user['wallet_balance']) - parseFloat(input_amount) 
-                if (amount < 0) { setSuccess(false); return}
+                if (deposit) amount = parseFloat(user['wallet_balance']) + parseFloat(input_amount)
+                else amount = parseFloat(user['wallet_balance']) - parseFloat(input_amount)
+                if (amount < 0) { setSuccess(false); return }
 
 
                 const res = await updateDB(
@@ -67,6 +67,7 @@ const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) =>
             }
         };
         updateUser();
+        setSuccess(true)
     }
 
 
@@ -81,16 +82,19 @@ const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) =>
 
 
 
-
-
-
-
-
     return (
 
-
         <Container>
-            {success ? <h1>Deposit: ${input_amount} </h1> : null}
+
+            {/* SUBMITION SUCCESS NOTIFICATION */}
+            {success ?
+                <Fader
+                    text={`${deposit ? "Deposited" : "Withdrew"}: $${input_amount}`}
+                    setSuccess={setSuccess}
+                />
+                : null}
+
+
 
             <Form onSubmit={onSubmit}>
                 <Row className='StripeRow'>
@@ -106,14 +110,16 @@ const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) =>
                 </Row>
 
 
+
+
                 <Row>
                     <Col>
-                        <Form.Label>Deposit Amount</Form.Label>
+                        <Form.Label>{wallet_action} Amount</Form.Label>
                         <InputGroup className="mb-3">
                             <InputGroup.Text>$</InputGroup.Text>
                             <Form.Control
                                 type='number'
-                                aria-label="Deposit Amount"
+                                aria-label={`${wallet_action} Amount`}
                                 onChange={(e) => setDeposit_amount(e.target.value)}
                             />
                             <InputGroup.Text>.00</InputGroup.Text>
