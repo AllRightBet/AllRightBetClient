@@ -85,9 +85,8 @@ const Navbar = ({ setUser, user }) => {
             : null
         }
 
-        <NavDropdown.Item> <LinkContainer to="/" >
-          <Nav.Link  >Log Out</Nav.Link>
-        </LinkContainer></NavDropdown.Item>
+        <NavDropdown.Item> Log Out </NavDropdown.Item>
+
       </NavDropdown>
     </Nav>
   );

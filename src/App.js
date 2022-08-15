@@ -69,12 +69,12 @@ const App = () => {
 
       <Route exact path="/deposit-funds" element={
         <DepositFunds stripePromise={stripePromise} stripeSecret={stripeSecret}
-        user={user} setUser={setUser} deposit={true}/>
+          user={user} setUser={setUser} deposit={true} />
       } />
 
       <Route exact path="/withdraw-funds" element={
         <DepositFunds stripePromise={stripePromise} stripeSecret={stripeSecret}
-        user={user} setUser={setUser} deposit={false} />
+          user={user} setUser={setUser} deposit={false} />
       } />
 
       <Route
@@ -87,10 +87,14 @@ const App = () => {
       />
       <Route path="/getFightCard" element={<GetFightCard />} />
 
-      {/* <Route path="/settings" element={<Home />} />
+      <Route path="/history" element={<DisplayModels url={`/user-history?email=${user['email']}`} />} />
+
+      <Route path="/top-bets" element={<DisplayModels url={'/top-bets'} />} />
+
+      {/* 
+      <Route path="/settings" element={<Home />} />
       <Route path="/event" element={<Home />} />
-      <Route path="/history" element={<Home />} />
-      <Route path="/top-bets" element={<Home />} /> */}
+      */}
 
 
       {/* ADMIN INTERFACE */}
