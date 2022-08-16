@@ -1,3 +1,6 @@
+// FETCH ALL MODELS FROM DATABASE
+
+
 import apiUrl from "./apiConfig";
 import axios from "axios";
 

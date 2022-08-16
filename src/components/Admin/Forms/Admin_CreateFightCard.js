@@ -1,3 +1,6 @@
+// CREATE FIGHT CARD FORM
+// API CALLS [ createFightCard ]
+
 import React, { useState } from "react";
 
 import Button from "react-bootstrap/Button";

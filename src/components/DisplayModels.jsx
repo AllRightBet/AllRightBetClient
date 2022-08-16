@@ -1,14 +1,20 @@
+// DISPLAY ALL MODELS COMPONENT (recycled)
+// API CALLS [ fetchAll ]
+
+
 import React, { useEffect, useState } from 'react'
 import { fetchAll } from "../api/renderAll";
 
 
 const DisplayModels = ({ url }) => {
 
+    //STATES
     const [items, setItems] = useState([]);
+
+
 
     // FETCH API 
     const fetch_data = () => {
-
         const handle_fetchAll = async () => {
             try {
                 const res = await fetchAll(url)
@@ -17,7 +23,6 @@ const DisplayModels = ({ url }) => {
                 console.log("error message: ", error);
             }
         };
-
         handle_fetchAll();
     }
 
@@ -28,6 +33,7 @@ const DisplayModels = ({ url }) => {
     useEffect(() => {
         fetch_data()
     });
+
 
 
 

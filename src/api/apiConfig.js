@@ -1,3 +1,5 @@
+// USED IN OTHER FILES WITHIN DIRECTORY FOR BASE URL API CALLS
+
 let apiUrl;
 const apiUrls = {
   production: "http://localhost:8080",

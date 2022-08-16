@@ -1,12 +1,16 @@
+// FADE IN EFFECT COMPONENT
+
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './Fader.css'
 
 const Fader = ({ text, setSuccess }) => {
 
+
     const [fadeProp, setFadeProp] = useState({
         fade: 'fade-in',
     });
+
 
     useEffect(() => {
         const timeout = setInterval(() => {
@@ -19,19 +23,19 @@ const Fader = ({ text, setSuccess }) => {
                     fade: 'fade-in'
                 })
             }
-        }, 5000) ;
-    return () => {clearInterval(timeout); setSuccess(false)  }
-}, [fadeProp])
+        }, 5000);
+        return () => { clearInterval(timeout); setSuccess(false) }
+    }, [fadeProp])
 
-return (
-    <>
-        <h1 data-testid="fader" className={fadeProp.fade}>{text}</h1>
-    </>
-)
+    return (
+        <>
+            <h1 data-testid="fader" className={fadeProp.fade}>{text}</h1>
+        </>
+    )
 }
 
 Fader.defaultProps = {
-    text: 'Hello World!'
+    text: 'null'
 }
 
 Fader.propTypes = {

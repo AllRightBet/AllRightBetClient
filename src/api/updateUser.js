@@ -1,3 +1,5 @@
+// PUT REQUEST TO UPDATE USER
+
 import apiUrl from "./apiConfig";
 import axios from "axios";
 

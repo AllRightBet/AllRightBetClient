@@ -1,3 +1,5 @@
+// POST FIGHT CARD MODEL
+
 import apiUrl from "./apiConfig";
 import axios from "axios";
 

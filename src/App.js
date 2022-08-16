@@ -1,22 +1,27 @@
-import "./app.css";
+// REACT 
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import "./app.css";
 
-import Home from "./components/Users/Display/Home/Home";
+// USER COMPONENTS
 import SignIn from "./components/Users/Display/SignIn/SignIn";
 import SignUp from "./components/Users/Display/SignUp/SignUp";
-
-import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
-import AdminCreateFightCard from "./components/Admin/Forms/Admin_CreateFightCard";
-import DisplayModels from "./components/DisplayModels";
-import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
-import Navbar from "./components/Global/Navbar/Navbar";
 import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
 import DepositFunds from "./components/Users/Forms/Wallet/HandleFunds";
+import Home from "./components/Users/Display/Home/Home";
 
+// ADMIN COMPONENTS
+import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
+import AdminCreateFightCard from "./components/Admin/Forms/Admin_CreateFightCard";
+import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
+
+// GLOBAL COMPONENTS
+import Navbar from "./components/Global/Navbar/Navbar";
+import DisplayModels from "./components/DisplayModels";
+
+
+// STRIPE
 import { loadStripe } from '@stripe/stripe-js';
-
-
 
 
 
@@ -37,6 +42,8 @@ const App = () => {
 
 
 
+
+  //ON RENDER
   useEffect(() => {
     console.log(user);
   }, [user]);
@@ -89,9 +96,8 @@ const App = () => {
 
       {
         user ? <Route path="/history" element={<DisplayModels url={`/user-history?email=${user['email']}`} />} />
-        : null
+          : null
       }
-
 
       <Route path="/top-bets" element={<DisplayModels url={'/top-bets'} />} />
 

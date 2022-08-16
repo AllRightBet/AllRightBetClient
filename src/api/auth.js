@@ -1,3 +1,5 @@
+// SIGN UP AND FETCH ALL USER FUNCTIONS
+
 import apiUrl from "./apiConfig";
 import axios from "axios";
 
