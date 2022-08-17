@@ -12,7 +12,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import { signUp } from "../../../../api/auth";
 
-const SignUpForm = ({ isAdmin, setUser, user }) => {
+const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
   const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState("");

@@ -28,6 +28,7 @@ import DisplayModels from "./components/DisplayModels";
 
 // STRIPE
 import { loadStripe } from '@stripe/stripe-js';
+import Settings from "./components/Users/Forms/Settings/Settings";
 
 // INIT STRIPE PAYMENT OBJECTS
 //TODO: USE SPRING API TO SERVE STRIPE CREDENTIALS
@@ -115,21 +116,37 @@ const App = () => {
 
       <Route path="/top-bets" element={<DisplayModels url={"/top-bets"} />} />
 
-      {/* 
-      <Route path="/settings" element={<Home />} />
-      <Route path="/event" element={<Home />} />
-      */}
+
+      <Route path="/event" element={<GetFightCard />} />
+
+
+      <Route path="/settings" element={<Settings />} />
+
+
+
+
+
+
+
 
       {/* ADMIN INTERFACE */}
       <Route path="/admin" element={<AdminDashboard />} />
+
       <Route path="/create-fight-card" element={<AdminCreateFightCard />} />
-      <Route path="/create-user" element={<SignUpForm isAdmin={true} />} />
+
+      <Route path="/create-user" element={<SignUpForm
+        isSettings={false}
+        isAdmin={true}
+        setUser={setUser}
+        user={user} />} />
 
       <Route path="/all-users" element={<DisplayModels url="/user" />} />
+      
       <Route
         path="/all-fight-cards"
         element={<DisplayModels url="/fight-card" />}
       />
+    
     </Routes>
   );
 
