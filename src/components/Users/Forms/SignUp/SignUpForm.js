@@ -11,20 +11,21 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import { signUp } from "../../../../api/auth";
+import { updateDB } from "../../../../api/updateUser";
 
-const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
+const SignUpForm = ({ isSetting, isAdmin, setUser, user }) => {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
-  const [age, setAge] = useState("");
+  const [firstName, setFirstName] = useState(isSetting ? user['firstName'] : "");
+  const [lastName, setLastName] = useState(isSetting ? user['lastName'] : "");
+  const [userName, setUserName] = useState(isSetting ? user['username'] : "");
+  const [email, setEmail] = useState(isSetting ? user['email'] : "");
+  const [password, setPassword] = useState(isSetting ? user['password'] : "");
+  const [address, setAddress] = useState(isSetting ? user['address'] : "");
+  const [state, setState] = useState(isSetting ? user['state'] : "");
+  const [city, setCity] = useState(isSetting ? user['city'] : "");
+  const [zip, setZip] = useState(isSetting ? user['zip'] : "");
+  const [age, setAge] = useState(isSetting ? user['age'] : "");
 
   const [auth_provider, setAuth_provider] = useState("null");
   const [wallet_amount, setWallet_amount] = useState(0);
@@ -79,9 +80,66 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
     console.log(user);
   };
 
+
+
+  const onUpdateUser = () => {
+    const UpdateUser = async () => {
+      try {
+        const res = await updateDB(
+          user,
+          [
+            'firstName',
+            'lastName',
+            'username',
+            'email',
+            'password',
+            'address',
+            'state',
+            'city',
+            'zip',
+            'age',
+          ],
+          [
+            firstName,
+            lastName,
+            userName,
+            email,
+            password,
+            address,
+            state,
+            city,
+            zip,
+            age,
+            auth_provider,
+            wallet_amount,
+            payment_method,
+            !admin
+          ]
+        );
+        setUser(res.data);
+      } catch (error) {
+        console.log("error message: ", error);
+      }
+    };
+
+    UpdateUser();
+    if (user && isAdmin) {
+      navigate("/admin");
+    } else {
+      navigate("/");
+    }
+  }
+
+
+
+
+
+
+
+
   return (
     <Container>
-      <Form noValidate onSubmit={handleSubmit(onSignUp)}>
+      <Form noValidate onSubmit={isSetting ? handleSubmit(onUpdateUser) : handleSubmit(onSignUp)}>
         <Row>
           <Col>
             <Form.Group controlId="formFile" className="mb-3">
@@ -98,8 +156,8 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
               <Form.Control
                 type="text"
                 placeholder="First Name"
-                value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
               />
             </Form.Group>
           </Col>
@@ -110,8 +168,8 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
               <Form.Control
                 type="text"
                 placeholder="Last Name"
-                value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                value={lastName}
               />
             </Form.Group>
           </Col>
@@ -122,6 +180,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
             type="text"
             placeholder="Username"
             onChange={(e) => setUserName(e.target.value)}
+            value={userName}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -130,6 +189,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
             type="email"
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -138,13 +198,13 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-
           <input
             name="password"
             type="password"
             {...register("password")}
             className={`form-control ${errors.password ? "is-invalid" : ""}`}
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </Form.Group>
 
@@ -164,6 +224,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
             type="text"
             placeholder="Address"
             onChange={(e) => setAddress(e.target.value)}
+            value={address}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicState">
@@ -172,6 +233,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
             type="text"
             placeholder="State"
             onChange={(e) => setState(e.target.value)}
+            value={state}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCity">
@@ -180,6 +242,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
             type="text"
             placeholder="City"
             onChange={(e) => setCity(e.target.value)}
+            value={city}
           />
         </Form.Group>
 
@@ -191,6 +254,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
                 type="text"
                 placeholder="Zip"
                 onChange={(e) => setZip(e.target.value)}
+                value={zip}
               />
             </Form.Group>
           </Col>
@@ -201,6 +265,7 @@ const SignUpForm = ({ isSettings, isAdmin, setUser, user }) => {
                 type="text"
                 placeholder="Age"
                 onChange={(e) => setAge(e.target.value)}
+                value={age}
               />
               <Form.Text className="text-muted">
                 Must be 21 years or over to sign up.

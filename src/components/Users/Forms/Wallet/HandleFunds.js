@@ -58,8 +58,8 @@ const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) =>
 
                 const res = await updateDB(
                     user,
-                    "wallet_balance",
-                    amount
+                    ["wallet_balance"],
+                    [amount]
                 );
                 setUser(res.data);
             } catch (error) {
@@ -72,7 +72,7 @@ const HandleFunds = ({ stripePromise, stripeSecret, user, setUser, deposit }) =>
 
 
 
-    // FOR PaymentElement COMPONENT
+    // FOR <PaymentElement/> @STRIPE-COMPONENT
     const options = {
         // clientSecret : stripeSecret
     }

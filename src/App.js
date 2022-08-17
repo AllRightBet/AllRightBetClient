@@ -28,7 +28,7 @@ import DisplayModels from "./components/DisplayModels";
 
 // STRIPE
 import { loadStripe } from '@stripe/stripe-js';
-import Settings from "./components/Users/Forms/Settings/Settings";
+import Settings from "./components/Users/Display/Settings/Settings";
 
 // INIT STRIPE PAYMENT OBJECTS
 //TODO: USE SPRING API TO SERVE STRIPE CREDENTIALS
@@ -48,16 +48,8 @@ const App = () => {
 
   const notLoggedIn = (
     <Routes>
-      {/* USER INTERFACE */}
-      <Route
-        exact
-        path="/"
-        element={<SignIn setUser={setUser} user={user} />}
-      />
-      <Route
-        path="/signUp"
-        element={<SignUp setUser={setUser} user={user} />}
-      />
+      <Route exact path="/" element={<SignIn setUser={setUser} user={user} />} />
+      <Route path="/signUp" element={<SignUp setUser={setUser} user={user} />} />
     </Routes>
   );
 
@@ -116,11 +108,9 @@ const App = () => {
 
       <Route path="/top-bets" element={<DisplayModels url={"/top-bets"} />} />
 
-
       <Route path="/event" element={<GetFightCard />} />
 
-
-      <Route path="/settings" element={<Settings />} />
+      <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
 
 
 
@@ -134,19 +124,20 @@ const App = () => {
 
       <Route path="/create-fight-card" element={<AdminCreateFightCard />} />
 
-      <Route path="/create-user" element={<SignUpForm
-        isSettings={false}
-        isAdmin={true}
-        setUser={setUser}
-        user={user} />} />
+      <Route path="/create-user" element={
+        <SignUpForm
+        isSetting={false}
+          isAdmin={true}
+          setUser={setUser}
+          user={user} />
+      } />
 
       <Route path="/all-users" element={<DisplayModels url="/user" />} />
-      
-      <Route
-        path="/all-fight-cards"
+
+      <Route path="/all-fight-cards"
         element={<DisplayModels url="/fight-card" />}
       />
-    
+
     </Routes>
   );
 

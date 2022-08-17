@@ -25,7 +25,6 @@ const Login = ({ setUser, user }) => {
 
   function ValidatePassword() {
     if (password_input.length < 6) {
-      alert("Invalid")
       return false
     }
     return true
