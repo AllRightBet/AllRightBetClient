@@ -11,10 +11,8 @@ const Bet = () => {
 
     const createBet = async () => {
       try {
-        const res = await signUp
-      } catch (error) {
-
-      }
+        const res = await signUp;
+      } catch (error) {}
     };
   };
   return (
