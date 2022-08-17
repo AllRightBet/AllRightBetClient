@@ -1,25 +1,19 @@
 import { useNavigate } from "react-router-dom";
 
-
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 import Button from "react-bootstrap/Button";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import { signUp } from "../../../../api/auth";
 
-
-
-
 const SignUpForm = ({ isAdmin, setUser, user }) => {
-  
   const navigate = useNavigate();
-
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -37,24 +31,21 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
   const [payment_method, setPayment_method] = useState("");
   const [admin, setAdmin] = useState(true);
 
-
   // FORM HOOK CONFIG
   const formSchema = Yup.object().shape({
     password: Yup.string()
-      .required('Password is mendatory')
-      .min(6, 'Password must be at 6 char long'),
+      .required("Password is mendatory")
+      .min(6, "Password must be at 6 char long"),
     confirmPwd: Yup.string()
-      .required('Password is mendatory')
-      .oneOf([Yup.ref('password')], 'Passwords does not match'),
-  })
-  const formOptions = { resolver: yupResolver(formSchema) }
-  const { register, handleSubmit, formState } = useForm(formOptions)
-  const { errors } = formState
+      .required("Password is mendatory")
+      .oneOf([Yup.ref("password")], "Passwords does not match"),
+  });
 
-
+  const formOptions = { resolver: yupResolver(formSchema) };
+  const { register, handleSubmit, reset, formState } = useForm(formOptions);
+  const { errors } = formState;
 
   const onSignUp = () => {
-
     const createUser = async () => {
       try {
         const res = await signUp(
@@ -85,7 +76,7 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
     } else {
       navigate("/");
     }
-    console.log(user)
+    console.log(user);
   };
 
   return (
@@ -151,20 +142,19 @@ const SignUpForm = ({ isAdmin, setUser, user }) => {
           <input
             name="password"
             type="password"
-            {...register('password')}
-            className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+            {...register("password")}
+            className={`form-control ${errors.password ? "is-invalid" : ""}`}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <label>Confirm Password</label>
           <input
             name="confirmPwd"
             type="password"
-            {...register('confirmPwd')}
-            className={`form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}
+            {...register("confirmPwd")}
+            className={`form-control ${errors.confirmPwd ? "is-invalid" : ""}`}
           />
         </Form.Group>
 

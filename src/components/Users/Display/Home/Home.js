@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
 import { Col, Container, Row } from "react-bootstrap";
 
-const Home = ({user}) => {
+const Home = ({ user }) => {
   return (
     <Container className="container">
       <Row>
@@ -14,8 +14,8 @@ const Home = ({user}) => {
           </LinkContainer>
         </Col>
         <Col className="link__column">
-          <LinkContainer to="/event" className="link__container">
-            <Nav.Link className="link">${user.wallet_balance}</Nav.Link>
+          <LinkContainer to="/bet" className="link__container">
+            <Nav.Link className="link">$$$$</Nav.Link>
           </LinkContainer>
         </Col>
       </Row>

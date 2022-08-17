@@ -1,4 +1,4 @@
-// REACT 
+// REACT
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./app.css";
@@ -6,9 +6,6 @@ import "./app.css";
 // USER COMPONENTS
 import SignIn from "./components/Users/Display/SignIn/SignIn";
 import SignUp from "./components/Users/Display/SignUp/SignUp";
-import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
-import DepositFunds from "./components/Users/Forms/Wallet/HandleFunds";
-import Home from "./components/Users/Display/Home/Home";
 
 // ADMIN COMPONENTS
 import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
@@ -17,41 +14,17 @@ import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 
 // GLOBAL COMPONENTS
 import Navbar from "./components/Global/Navbar/Navbar";
-import DisplayModels from "./components/DisplayModels";
-
-
-// STRIPE
-import { loadStripe } from '@stripe/stripe-js';
-
-
-
-// INIT STRIPE PAYMENT OBJECTS
-//TODO: USE SPRING API TO SERVE STRIPE CREDENTIALS
-const stripePromise = loadStripe("pk_test_BDT6hqtqNcW6MwYguNEYe2Wa00vTqDikAb");
-
-
-
-
-
+import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
+import Bet from "./components//Users/Forms/Bet/Bet.js";
 
 const App = () => {
-
   // STATES
   const [user, setUser] = useState(null);
   const [stripeSecret, setStripeSecret] = useState("");
 
-
-
-
-  //ON RENDER
   useEffect(() => {
     console.log(user);
   }, [user]);
-
-
-
-
-
 
   const notLoggedIn = (
     <Routes>
@@ -68,21 +41,38 @@ const App = () => {
     </Routes>
   );
 
-
   const loggedIn = (
     <Routes>
       {/* USER INTERFACE */}
       <Route exact path="/" element={<Home user={user} />} />
 
-      <Route exact path="/deposit-funds" element={
-        <DepositFunds stripePromise={stripePromise} stripeSecret={stripeSecret}
-          user={user} setUser={setUser} deposit={true} />
-      } />
+      <Route
+        exact
+        path="/deposit-funds"
+        element={
+          <DepositFunds
+            stripePromise={stripePromise}
+            stripeSecret={stripeSecret}
+            user={user}
+            setUser={setUser}
+            deposit={true}
+          />
+        }
+      />
 
-      <Route exact path="/withdraw-funds" element={
-        <DepositFunds stripePromise={stripePromise} stripeSecret={stripeSecret}
-          user={user} setUser={setUser} deposit={false} />
-      } />
+      <Route
+        exact
+        path="/withdraw-funds"
+        element={
+          <DepositFunds
+            stripePromise={stripePromise}
+            stripeSecret={stripeSecret}
+            user={user}
+            setUser={setUser}
+            deposit={false}
+          />
+        }
+      />
 
       <Route
         path="/user-bets"
@@ -92,20 +82,24 @@ const App = () => {
         path="/user-fight-cards"
         element={<DisplayModels url="/fight-card?relative_user=1" />}
       />
+      <Route path="/bet" element={<Bet />} />
       <Route path="/getFightCard" element={<GetFightCard />} />
 
-      {
-        user ? <Route path="/history" element={<DisplayModels url={`/user-history?email=${user['email']}`} />} />
-          : null
-      }
+      {user ? (
+        <Route
+          path="/history"
+          element={
+            <DisplayModels url={`/user-history?email=${user["email"]}`} />
+          }
+        />
+      ) : null}
 
-      <Route path="/top-bets" element={<DisplayModels url={'/top-bets'} />} />
+      <Route path="/top-bets" element={<DisplayModels url={"/top-bets"} />} />
 
       {/* 
       <Route path="/settings" element={<Home />} />
       <Route path="/event" element={<Home />} />
       */}
-
 
       {/* ADMIN INTERFACE */}
       <Route path="/admin" element={<AdminDashboard />} />
@@ -113,7 +107,6 @@ const App = () => {
       <Route path="/create-user" element={<SignUpForm isAdmin={true} />} />
 
       <Route path="/all-users" element={<DisplayModels url="/user" />} />
-      <Route path="/all-bets" element={<DisplayModels url="/bet" />} />
       <Route
         path="/all-fight-cards"
         element={<DisplayModels url="/fight-card" />}
