@@ -38,8 +38,8 @@ const Home = ({ user }) => {
           </LinkContainer>
         </Col>
         <Col className="link__column">
-          <LinkContainer to="/top-bets" className="link__container">
-            <Nav.Link className="link">Top-Bets</Nav.Link>
+          <LinkContainer to="/bet" className="link__container">
+            <Nav.Link className="link">bet</Nav.Link>
           </LinkContainer>
         </Col>
       </Row>
