@@ -6,6 +6,9 @@ import "./app.css";
 // USER COMPONENTS
 import SignIn from "./components/Users/Display/SignIn/SignIn";
 import SignUp from "./components/Users/Display/SignUp/SignUp";
+import Home from "./components/Users/Display/Home/Home";
+import DepositFunds from "./components/Users/Forms/Wallet/HandleFunds";
+
 
 // ADMIN COMPONENTS
 import AdminDashboard from "./components/Admin/Display/AdminDashboard.js";
@@ -16,6 +19,22 @@ import GetFightCard from "./components/Users/Display/GetFightCard/GetFightCard";
 import Navbar from "./components/Global/Navbar/Navbar";
 import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
 import Bet from "./components//Users/Forms/Bet/Bet.js";
+import DisplayModels from "./components/DisplayModels";
+
+
+
+
+
+
+// STRIPE
+import { loadStripe } from '@stripe/stripe-js';
+
+// INIT STRIPE PAYMENT OBJECTS
+//TODO: USE SPRING API TO SERVE STRIPE CREDENTIALS
+const stripePromise = loadStripe("pk_test_BDT6hqtqNcW6MwYguNEYe2Wa00vTqDikAb");
+
+
+
 
 const App = () => {
   // STATES

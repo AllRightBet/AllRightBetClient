@@ -14,8 +14,8 @@ const Home = ({ user }) => {
           </LinkContainer>
         </Col>
         <Col className="link__column">
-          <LinkContainer to="/bet" className="link__container">
-            <Nav.Link className="link">$$$$</Nav.Link>
+          <LinkContainer to="/event" className="link__container">
+            <Nav.Link className="link">${user.wallet_balance}</Nav.Link>
           </LinkContainer>
         </Col>
       </Row>
