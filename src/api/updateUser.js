@@ -1,4 +1,4 @@
-// PUT REQUEST TO UPDATE USER
+// PUT REQUEST TO UPDATE USER (keys & newValues are parallel lists)
 
 import apiUrl from "./apiConfig";
 import axios from "axios";
