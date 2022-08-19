@@ -1,12 +1,17 @@
+// RETURNS EITHER LOGGED IN USER OPTIONS OR SIGN IN OPTIONS
+
 import "./navbar.css";
+
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
 
+
+
+
 const Navbar = ({ setUser, user }) => {
   const handleSelect = null
-  // const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
 
   const notLoggedIn = (
     <Nav

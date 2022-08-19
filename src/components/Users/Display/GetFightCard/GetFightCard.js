@@ -1,8 +1,13 @@
+// COMPARTMENTED FROM OTHER COMPONENTS WITHIN DIR
+
 import "./getFightCard.css";
+
 import FightCardBody from "./FightCardBody";
 import React from "react";
 import FightCardHeader from "./FightCardHeader";
 import FightCardNamePlack from "./FightCardNamePlack";
+
+
 
 const GetFightCard = () => {
   return (

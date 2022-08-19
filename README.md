@@ -3,3 +3,7 @@ Contains a Configuration file & a list of files, each containing a function to r
 
 # ~/src/components
 Sorted by User Interface & Admin Interface
+
+
+# App.js
+Route controller
