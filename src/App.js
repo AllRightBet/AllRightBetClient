@@ -95,7 +95,7 @@ const App = () => {
         element={<DisplayModels url="/fight-card?relative_user=1" />}
       />
       <Route path="/bet" element={<Bet />} />
-      <Route path="/getFightCard" element={<GetFightCard />} />
+      <Route path="/event" element={<GetFightCard />} />
 
       {user ? (
         <Route
@@ -107,8 +107,6 @@ const App = () => {
       ) : null}
 
       <Route path="/top-bets" element={<DisplayModels url={"/top-bets"} />} />
-
-      <Route path="/event" element={<GetFightCard />} />
 
       <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
 
@@ -126,7 +124,7 @@ const App = () => {
 
       <Route path="/create-user" element={
         <SignUpForm
-        isSetting={false}
+          isSetting={false}
           isAdmin={true}
           setUser={setUser}
           user={user} />
