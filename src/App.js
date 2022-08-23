@@ -97,7 +97,7 @@ const App = () => {
 
 
       <Route path="/event" element={<GetFightCard />} />
-      <Route path="/bet" element={<Bet />} />
+      <Route path="/bet" element={<Bet user={user}/>} />
       <Route path="/bet-1" element={<Bet option={1} user={user}/>} />
       <Route path="/bet-2" element={<Bet option={2} user={user}/>} />
 

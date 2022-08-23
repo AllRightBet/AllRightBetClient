@@ -6,7 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 const FightCardBody = ({ img, alt, option }) => {
   return (
     <>
-      <LinkContainer to="/bet" className="fightCard_body_container">
+      <LinkContainer to={`/bet-${option}`} className="fightCard_body_container">
         <Nav.Link className="fightCard_opponent_link">
           <div className="fightCard__opponent">
             <div className="fighCard__opponent-img-container">
