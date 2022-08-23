@@ -3,11 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { createBet } from "../../../../api/bet";
 
-const Bet = ({option, user}) => {
+const Bet = ({ option, user }) => {
   const [bet_amount, setBet_amount] = useState(0);
-  const [favor_opponent, setFavor_opponent] = useState(0);
-  const [favor_opponent_one_radio, setfavor_opponent_one_radio] = useState(option === 1 ? true:false);
-  const [favor_opponent_two_radio, setfavor_opponent_two_radio] = useState(option === 2 ? true:false);
+  const [favor_opponent, setFavor_opponent] = useState(option === 1 ? "Opp 1" : "Opp 2");
 
   const onCreateBet = (e) => {
     e.preventDefault();
@@ -35,24 +33,15 @@ const Bet = ({option, user}) => {
           onChange={(e) => setBet_amount(e.target.value)}
         />
       </Form.Group>
-      <Form.Check
-        inline
-        type="radio"
-        label="Opp 1"
-        name="Opp 1"
-        id="opp 1"
-        checked={favor_opponent_one_radio}
-        onChange={(e) => setFavor_opponent(e.target.id)}
-        />
-      <Form.Check
-        inline
-        type="radio"
-        label="Opp 2"
-        name="Opp 1"
-        id="opp 2"
-        checked={favor_opponent_two_radio}
-        onChange={(e) => setFavor_opponent(e.target.id)}
-      />
+
+
+      {/* DEBUG */}
+      <h1>
+        {favor_opponent}
+      </h1>
+
+
+
       <Button variant="primary" type="submit">
         Submit
       </Button>
