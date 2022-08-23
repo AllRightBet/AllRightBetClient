@@ -4,12 +4,12 @@ import Button from "react-bootstrap/Button";
 import { createBet } from "../../../../api/bet";
 import { useNavigate } from "react-router-dom";
 
-const Bet = ({ option, user }) => {
-  
+const Bet = ({ option, user, Event }) => {
+
   const navigate = useNavigate()
 
   const [bet_amount, setBet_amount] = useState(0);
-  const [favor_opponent, setFavor_opponent] = useState(option === 1 ? "Opp 1" : "Opp 2");
+  const [favor_opponent] = useState(option === 1 ? Event.opponent_1 : Event.opponent_2);
 
   const onCreateBet = (e) => {
     e.preventDefault();
@@ -29,8 +29,8 @@ const Bet = ({ option, user }) => {
 
     <>
       {/* DEBUG */}
-      <h1> {favor_opponent} </h1>
       <h1> ${user['wallet_balance']} </h1>
+      <h1> {favor_opponent} </h1>
 
 
       <Form onSubmit={onCreateBet}>

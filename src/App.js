@@ -8,6 +8,7 @@ import SignIn from "./components/Users/Display/SignIn/SignIn";
 import SignUp from "./components/Users/Display/SignUp/SignUp";
 import Home from "./components/Users/Display/Home/Home";
 import DepositFunds from "./components/Users/Forms/Wallet/HandleFunds";
+import { fetchFightCards } from "./api/event";
 
 
 // ADMIN COMPONENTS
@@ -20,6 +21,11 @@ import Navbar from "./components/Global/Navbar/Navbar";
 import SignUpForm from "./components/Users/Forms/SignUp/SignUpForm";
 import Bet from "./components//Users/Forms/Bet/Bet.js";
 import DisplayModels from "./components/DisplayModels";
+
+
+
+
+
 
 
 
@@ -41,10 +47,39 @@ const App = () => {
   // STATES
   const [user, setUser] = useState(null);
   const [stripeSecret, setStripeSecret] = useState("");
+  const [LatestEvent, setLatestEvent] = useState()
+
+
 
   useEffect(() => {
+
+    //DEBUG
     console.log(user);
+
+
+    // FETCH latest event
+    const fetchLatestEvent = async () => {
+      try {
+        const res = await fetchFightCards();
+        setLatestEvent(res.data[res.data.length - 1]);
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
+    fetchLatestEvent()
+
+
   }, [user]);
+
+
+
+
+
+
+
+
+
 
   const notLoggedIn = (
     <Routes>
@@ -96,10 +131,9 @@ const App = () => {
       />
 
 
-      <Route path="/event" element={<GetFightCard />} />
-      <Route path="/bet" element={<Bet user={user}/>} />
-      <Route path="/bet-1" element={<Bet option={1} user={user}/>} />
-      <Route path="/bet-2" element={<Bet option={2} user={user}/>} />
+      <Route path="/event" element={<GetFightCard Event={LatestEvent} />} />
+      <Route path="/bet-1" element={<Bet option={1} user={user} Event={LatestEvent} />} />
+      <Route path="/bet-2" element={<Bet option={2} user={user} Event={LatestEvent} />} />
 
       {user ? (
         <Route
