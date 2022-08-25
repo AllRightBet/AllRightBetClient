@@ -15,7 +15,7 @@ const Bet = ({ option, user, Event }) => {
     e.preventDefault();
     const addBet = async () => {
       try {
-        const res = await createBet(bet_amount, favor_opponent);
+        const res = await createBet(bet_amount, user, Event, option);
         console.log(res.data);
       } catch (error) {
         console.log(error);
@@ -31,10 +31,9 @@ const Bet = ({ option, user, Event }) => {
       {/* DEBUG */}
       <h1> ${user['wallet_balance']} </h1>
       <h1> {favor_opponent} </h1>
-
+      <h1> {option} </h1>
 
       <Form onSubmit={onCreateBet}>
-        <h1>{user['wallet_amount']}</h1>
         <Form.Group className="mb-3" controlId="formBasicBet">
           <Form.Label>Bet</Form.Label>
           <Form.Control

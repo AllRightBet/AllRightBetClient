@@ -1,7 +1,7 @@
 import apiUrl from "./apiConfig";
 import axios from "axios";
 
-export const createBet = (bet_amount, favor_opponent) => {
+export const createBet = (bet_amount, user, event, option) => {
   return axios({
     headers: {
       "Content-Type": "application/json",
@@ -10,7 +10,9 @@ export const createBet = (bet_amount, favor_opponent) => {
     url: apiUrl + "/bet",
     data: {
       bet_amount: bet_amount,
-      favor_opponent: favor_opponent,
+      voter: user,
+      event: event,
+      favor_opponent: option,
       // event_picture: event_picture,
       // stats: {},
     },
