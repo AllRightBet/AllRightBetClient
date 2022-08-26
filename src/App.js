@@ -52,11 +52,6 @@ const App = () => {
 
 
   useEffect(() => {
-
-    //DEBUG
-    console.log(user);
-
-
     // FETCH latest event
     const fetchLatestEvent = async () => {
       try {
@@ -138,7 +133,7 @@ const App = () => {
         <Route
           path="/history"
           element={
-            <DisplayModels url={`/user-history?email=${user["email"]}`} />
+            <DisplayModels url={`/user-history`} history={true} user={user} />
           }
         />
       ) : null}

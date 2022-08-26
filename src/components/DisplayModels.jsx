@@ -4,37 +4,43 @@
 
 import React, { useEffect, useState } from 'react'
 import { fetchAll } from "../api/renderAll";
+import { fetchHistory } from '../api/renderBetHistory';
 
 
-const DisplayModels = ({ url }) => {
+const DisplayModels = ({ url, history, user }) => {
 
     //STATES
     const [items, setItems] = useState([]);
 
-
-
     // FETCH API 
     const fetch_data = () => {
         const handle_fetchAll = async () => {
-            try {
-                const res = await fetchAll(url)
-                setItems(res.data)
-            } catch (error) {
-                console.log("error message: ", error);
+            if (history) {
+                try {
+                    console.log(user)
+                    const res = await fetchHistory(url, user)
+                    setItems(res.data)
+                } catch (error) {
+                    console.log("error message: ", error);
+                }
+            }
+            else {
+                try {
+                    const res = await fetchAll(url)
+                    setItems(res.data)
+                } catch (error) {
+                    console.log("error message: ", error);
+                }
             }
         };
         handle_fetchAll();
     }
 
 
-
-
     // ON PAGE RENDER
     useEffect(() => {
         fetch_data()
     });
-
-
 
 
     return (

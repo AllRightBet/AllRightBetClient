@@ -17,6 +17,6 @@ export const updateDB = (user, keys, newValues) => {
         },
         method: "PUT",
         url: apiUrl + "/user",
-        data: user,
+        data: user
     });
 };
