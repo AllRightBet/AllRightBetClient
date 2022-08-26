@@ -145,6 +145,7 @@ const App = () => {
       ) : null}
 
       <Route path="/top-bets" element={<DisplayModels url={"/top-bets"} />} />
+      <Route path="/all-bets" element={<DisplayModels url={"/bet"} />} />
 
       <Route path="/settings" element={<Settings user={user} setUser={setUser} />} />
 

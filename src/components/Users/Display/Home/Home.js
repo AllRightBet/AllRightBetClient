@@ -37,11 +37,11 @@ const Home = ({ user }) => {
             <Nav.Link className="link">Settings</Nav.Link>
           </LinkContainer>
         </Col>
-        {/* <Col className="link__column">
-          <LinkContainer to="/bet" className="link__container">
-            <Nav.Link className="link">bet</Nav.Link>
+        <Col className="link__column">
+          <LinkContainer to="/top-bets" className="link__container">
+            <Nav.Link className="link">Top Bets</Nav.Link>
           </LinkContainer>
-        </Col> */}
+        </Col>
       </Row>
     </Container>
   );

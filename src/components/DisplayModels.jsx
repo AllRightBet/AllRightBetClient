@@ -44,7 +44,7 @@ const DisplayModels = ({ url }) => {
                 {
                     items.length > 0 ? items.map((item) => (
                         <>
-                            <div key={item.id} className="fetch_mapped_item">
+                            <div key={item['id']} className="fetch_mapped_item">
                                 {Object.keys(item).map(a => <p> <b> {`${a}`} </b>  {` : ${item[a]}`}</p>)}
                             </div>
                             <hr />
