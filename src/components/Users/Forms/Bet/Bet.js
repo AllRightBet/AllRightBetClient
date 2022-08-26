@@ -3,8 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { createBet } from "../../../../api/bet";
 import { useNavigate } from "react-router-dom";
+import { updateDB } from "../../../../api/updateUser";
 
-const Bet = ({ option, user, Event }) => {
+const Bet = ({ option, user, Event , setUser }) => {
 
   const navigate = useNavigate()
 
@@ -13,6 +14,8 @@ const Bet = ({ option, user, Event }) => {
 
   const onCreateBet = (e) => {
     e.preventDefault();
+
+
     const addBet = async () => {
       try {
         const res = await createBet(bet_amount, user, Event, option);
@@ -22,6 +25,27 @@ const Bet = ({ option, user, Event }) => {
       }
     };
 
+
+    const updateUser = async () => {
+      try {
+
+        let amount = 0;
+        amount = parseFloat(user['wallet_balance']) - parseFloat(bet_amount)
+        
+        const res = await updateDB(
+          user,
+          ["wallet_balance"],
+          [amount]
+        );
+        setUser(res.data);
+      } catch (error) {
+        console.log("error message: ", error);
+      }
+    };
+    
+
+    
+    updateUser();
     addBet();
     navigate("/history")
   };

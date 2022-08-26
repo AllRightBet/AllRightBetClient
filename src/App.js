@@ -131,8 +131,8 @@ const App = () => {
 
 
       <Route path="/event" element={<GetFightCard Event={LatestEvent} />} />
-      <Route path="/bet-1" element={<Bet option={1} user={user} Event={LatestEvent} />} />
-      <Route path="/bet-2" element={<Bet option={2} user={user} Event={LatestEvent} />} />
+      <Route path="/bet-1" element={<Bet option={1} user={user} Event={LatestEvent} setUser={setUser} />} />
+      <Route path="/bet-2" element={<Bet option={2} user={user} Event={LatestEvent} setUser={setUser} />} />
 
       {user ? (
         <Route
