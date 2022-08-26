@@ -68,9 +68,8 @@ const App = () => {
       }
     }
     fetchLatestEvent()
-
-
-  }, [user]);
+    
+  }, [user,LatestEvent]);
 
 
 
