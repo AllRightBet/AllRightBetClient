@@ -63,8 +63,9 @@ const App = () => {
       }
     }
     fetchLatestEvent()
-    
-  }, [user,LatestEvent]);
+
+  }, [user]);
+  // }, [user,LatestEvent]);   ////////// glitch, users will need to relog in order for event to update
 
 
 
@@ -133,7 +134,7 @@ const App = () => {
         <Route
           path="/history"
           element={
-            <DisplayModels url={`/user-history`} history={true} user={user} />
+            <DisplayModels url={`/user-history?email=${user.email}`}  />
           }
         />
       ) : null}
