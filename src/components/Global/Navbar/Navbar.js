@@ -22,7 +22,7 @@ const Navbar = ({ setUser, user }) => {
     >
       <NavDropdown
         className="nav_dropdown-container"
-        title="Dropdown"
+        title="Alright Bet"
         id="nav-dropdown"
       >
 
@@ -49,7 +49,7 @@ const Navbar = ({ setUser, user }) => {
     >
       <NavDropdown
         className="nav_dropdown-container"
-        title="Dropdown"
+        title={`${user.username}`}
         id="nav-dropdown"
       >
 
