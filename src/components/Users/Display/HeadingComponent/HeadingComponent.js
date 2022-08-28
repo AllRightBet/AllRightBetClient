@@ -5,29 +5,49 @@ import { Link } from "react-router-dom";
 const HeadingComponent = () => {
   return (
     <div className="headingComponent">
+
+
       <div className="headingComponent__container">
         <p className="headingComponent__app-name">Alright Bet</p>
-        <p className="headingComponent__app-slogan">Sports Ventures</p>
+        <p className="headingComponent__app-slogan">Wager Ventures</p>
       </div>
+
+
+
       <div className="headingComponent__secondary-heading-container">
         <h3 className="headingComponent__secondary-heading">New Customers</h3>
         <div className="headingComponent__secondary-heading-text-container">
           <h3 className="headingComponent__secondary-heading-text">
-            NO SWEAT FIRST BET
+            <Link to="/signUp" className="">
+              Join Us
+            </Link>
           </h3>
         </div>
       </div>
+
+
+
       <div className="headingComponent__main-heading-container">
-        <h2 className="headingComponent__main-heading-text">Place a $10 bet</h2>
+        <h2 className="headingComponent__main-heading-text">The worlds first</h2>
         <h1 className="headingComponent__main-heading-text-two">
-          Get $200 in free bets
+        E-Sports Betting App
         </h1>
       </div>
+
+
+
+
+      <br />
+
       <div className="btn__link-container">
-        <Link to="/signUp" className="btn__link-main">
-          Join Us
+        <Link to="/signIn" className="btn__link-main">
+          Login
         </Link>
       </div>
+
+
+
+
     </div>
   );
 };

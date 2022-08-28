@@ -42,7 +42,7 @@ const App = () => {
 
   const notLoggedIn = (
     <Routes>
-      <Route exact path="/" element={<Landing />} />
+      <Route exact path="/" element={<Landing/>} />
       <Route
         exact
         path="/signIn"

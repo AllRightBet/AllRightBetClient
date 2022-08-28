@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { fetchAllUsers } from "../../../api/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 
-// import { useNavigate } from "react-router-dom";
 
 
 const Login = ({ setUser, user }) => {
-  // const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   const [email_input, setEmail] = useState("");
   const [password_input, setPassword] = useState("");
@@ -56,6 +55,7 @@ const Login = ({ setUser, user }) => {
         checkIfCredsMatchDb(email_input, password_input, users)
       ) {
         console.log("user signed in");
+        navigate("/")
       } else {
         console.log("Wrong credentials");
       }
@@ -63,7 +63,7 @@ const Login = ({ setUser, user }) => {
   };
 
   return (
-    <>
+    <div className="user-login-form">
       <Form noValidate onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Email</Form.Label>
@@ -86,7 +86,7 @@ const Login = ({ setUser, user }) => {
           Submit
         </Button>
       </Form>
-    </>
+    </div>
   );
 };
 

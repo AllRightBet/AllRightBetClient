@@ -8,7 +8,6 @@ const SignIn = ({ setUser, user }) => {
   return (
     <div className="login-wrapper">
       <Login setUser={setUser} user={user} />
-      <Link to="/signUp">Create Account</Link>
     </div>
   );
 };
