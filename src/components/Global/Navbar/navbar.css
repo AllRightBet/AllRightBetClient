@@ -1,11 +1,15 @@
 .nav__container {
-  background-color: #fbfbfb;
+  background-color: #c1121f;
   display: flex;
   align-items: center;
-  border-radius: 8px;
 }
 
 .nav_dropdown-container {
   margin: 10px;
   margin-left: 30px;
+  font-size: 20px;
+}
+
+#nav-dropdown {
+  color: white;
 }

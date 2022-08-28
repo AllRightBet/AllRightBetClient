@@ -1,0 +1,71 @@
+.headingComponent {
+  background-image: url(sun-tornado.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  padding: 50px 20px;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headingComponent__container {
+  margin-bottom: 25px;
+}
+
+.headingComponent__app-name {
+  font-size: 54px;
+  margin: 0;
+}
+
+.headingComponent__app-slogan {
+  font-size: 38px;
+  margin: 0;
+}
+
+.headingComponent__secondary-heading-container {
+  font-size: 18px;
+
+  margin-bottom: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headingComponent__secondary-heading {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.headingComponent__secondary-heading-text-container {
+  font-size: 30px;
+  background-color: #003049;
+  padding: 10px;
+}
+
+.headingComponent__secondary-heading-text {
+  font-size: 45px;
+}
+
+.headingComponent__main-heading-container {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headingComponent__main-heading-text {
+  font-size: 80px;
+}
+
+.headingComponent__main-heading-text-two {
+  font-size: 100px;
+}
