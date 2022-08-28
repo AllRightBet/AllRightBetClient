@@ -49,7 +49,7 @@ const Navbar = ({ setUser, user }) => {
     >
       <NavDropdown
         className="nav_dropdown-container"
-        title={`${user.username}`}
+        title={ user ? `${user.username}` : "Alright Bet"  }
         id="nav-dropdown"
       >
 
