@@ -26,7 +26,7 @@ const Navbar = ({ setUser, user }) => {
         id="nav-dropdown"
       >
 
-        <NavDropdown.Item> <LinkContainer to="/" >
+        <NavDropdown.Item> <LinkContainer to="/signIn" >
           <Nav.Link  >Log In</Nav.Link>
         </LinkContainer></NavDropdown.Item>
 
