@@ -34,21 +34,11 @@ const App = () => {
   // STATES
   const [user, setUser] = useState(null);
   const [stripeSecret, setStripeSecret] = useState("");
-  const [LatestEvent, setLatestEvent] = useState();
 
   useEffect(() => {
-    // FETCH latest event
-    const fetchLatestEvent = async () => {
-      try {
-        const res = await fetchFightCards();
-        setLatestEvent(res.data[res.data.length - 1]);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchLatestEvent();
+
   }, [user]);
-  // }, [user,LatestEvent]);   ////////// glitch, users will need to relog in order for event to update
+
 
   const notLoggedIn = (
     <Routes>
@@ -107,17 +97,17 @@ const App = () => {
         element={<DisplayModels url="/fight-card?relative_user=1" />}
       />
 
-      <Route path="/event" element={<GetFightCard Event={LatestEvent} />} />
+      <Route path="/event" element={<GetFightCard />} />
       <Route
         path="/bet-1"
         element={
-          <Bet option={1} user={user} Event={LatestEvent} setUser={setUser} />
+          <Bet option={1} user={user} setUser={setUser} />
         }
       />
       <Route
         path="/bet-2"
         element={
-          <Bet option={2} user={user} Event={LatestEvent} setUser={setUser} />
+          <Bet option={2} user={user} setUser={setUser} />
         }
       />
 

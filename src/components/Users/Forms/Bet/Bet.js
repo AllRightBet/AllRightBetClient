@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { createBet } from "../../../../api/bet";
 import { useNavigate } from "react-router-dom";
 import { updateDB } from "../../../../api/updateUser";
+import { fetchFightCards } from "../../../../api/event";
 
-const Bet = ({ option, user, Event , setUser }) => {
+const Bet = ({ option, user, setUser }) => {
+
 
   const navigate = useNavigate()
 
+  const [Event, setEvent] = useState();
   const [bet_amount, setBet_amount] = useState(0);
-  const [favor_opponent] = useState(option === 1 ? Event.opponent_1 : Event.opponent_2);
+
+
+
+  useEffect(() => {
+    // FETCH latest event
+    const fetchLatestEvent = async () => {
+      try {
+        const res = await fetchFightCards();
+        setEvent(res.data[res.data.length - 1]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchLatestEvent();
+    console.log(option)
+  }, []);
+
+
+
 
   const onCreateBet = (e) => {
     e.preventDefault();
@@ -31,7 +52,7 @@ const Bet = ({ option, user, Event , setUser }) => {
 
         let amount = 0;
         amount = parseFloat(user['wallet_balance']) - parseFloat(bet_amount)
-        
+
         const res = await updateDB(
           user,
           ["wallet_balance"],
@@ -42,9 +63,9 @@ const Bet = ({ option, user, Event , setUser }) => {
         console.log("error message: ", error);
       }
     };
-    
 
-    
+
+
     updateUser();
     addBet();
     navigate("/history")
@@ -54,7 +75,6 @@ const Bet = ({ option, user, Event , setUser }) => {
     <>
       {/* DEBUG */}
       <h1> ${user['wallet_balance']} </h1>
-      <h1> {favor_opponent} </h1>
       <h1> {option} </h1>
 
       <Form onSubmit={onCreateBet}>
