@@ -3,7 +3,7 @@ import { fetchAllUsers } from "../../../api/auth";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
-
+import "./Login.css";
 
 
 const Login = ({ setUser, user }) => {
@@ -64,7 +64,7 @@ const Login = ({ setUser, user }) => {
 
   return (
     <div className="user-login-form">
-      <Form noValidate onSubmit={handleSubmit}>
+      <Form noValidate onSubmit={handleSubmit}   >
         <Form.Group>
           <Form.Label>Email</Form.Label>
           <Form.Control

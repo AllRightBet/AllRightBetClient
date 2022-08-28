@@ -30,7 +30,7 @@ const HeadingComponent = () => {
       <div className="headingComponent__main-heading-container">
         <h2 className="headingComponent__main-heading-text">The worlds first</h2>
         <h1 className="headingComponent__main-heading-text-two">
-        E-Sports Betting App
+          E-Sports Betting App
         </h1>
       </div>
 
@@ -46,6 +46,26 @@ const HeadingComponent = () => {
       </div>
 
 
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <footer>
+        <h4>
+        Authors
+        </h4>
+        <p>
+          Affan Fareed<br />
+          <a href="mailto:affan.fareed@gmail.com">affan.fareed@gmail.com</a>
+        </p>
+        <p>
+          Moe Yassine<br />
+          <a href="mailto:moeyassine1993@gmail.com">moeyassine1993@gmail.com</a>
+        </p>
+      </footer>
 
 
     </div>
